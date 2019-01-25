@@ -1,19 +1,29 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 
 import FilterJobs from '../../components/dashboard/mainContentJobs/FilterJobs'
-import ListOfCards from '../../components/dashboard/mainContentJobs/ListOfCards'
+import ListOfJobs from '../../components/dashboard/mainContentJobs/ListOfJobs'
 
 class MainContentJobs extends Component {
 
   render() {
+    const { jobs } = this.props;
     return(
       <div className="main-content">
         <FilterJobs />
-        <ListOfCards />
+        <ListOfJobs data={jobs}/>
         <button className="btn-add-jobs">Start New Project</button>
       </div>
     )
   }
 }
 
-export default MainContentJobs
+const mapStateToProps = store => {
+  return {
+    jobs: store.jobs.jobs,
+  }
+};
+
+export default connect(
+  mapStateToProps,
+)(MainContentJobs);

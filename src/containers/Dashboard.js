@@ -11,7 +11,8 @@ class Dashboard extends Component {
 
   fullName = () => {
     const { firstName, lastName } = this.props;
-    return '' + firstName + ' ' + lastName
+    const fullName = '' + firstName + ' ' + lastName
+    return fullName
   }
 
   render() {

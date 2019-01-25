@@ -1,0 +1,5 @@
+.list-jobs {
+  width: 65%;
+  display: flex;
+  flex-wrap: wrap;
+}

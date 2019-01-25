@@ -2,8 +2,8 @@ import { handleActions } from 'redux-actions';
 import * as TYPES from '../types'
 
 const initialState = {
-  firstName: '',
-  lastName: '',
+  firstName: 'John',
+  lastName: 'Jackson',
   email: '',
 }
 

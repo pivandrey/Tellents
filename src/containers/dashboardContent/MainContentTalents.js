@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import FilterTalents from '../../components/dashboard/mainContentTalents/FilterTalents'
-import ListOfCards from '../../components/dashboard/mainContentTalents/ListOfCards'
+import ListOfTalents from '../../components/dashboard/mainContentTalents/ListOfTalents'
 
 import './mainContent.css'
 
@@ -11,7 +11,7 @@ class MainContentTalents extends Component {
     return(
       <div className="main-content">
         <FilterTalents />
-        <ListOfCards />
+        <ListOfTalents />
         <button className="btn-add-jobs">Start New Project</button>
       </div>
     )

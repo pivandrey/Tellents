@@ -6,10 +6,10 @@ import './dashboardContentStyle.css'
 class ContentHeader extends Component {
 
   render() {
-    const { fullName } = this.props
+    const fullName = this.props.fullName
     return(
       <div className="content-header-flex">
-        <p class="content-header-text"><span>Hi {fullName} ,</span><br />What are you looking for today?</p>
+        <p className="content-header-text"><span>Hi {fullName()},</span><br />What are you looking for today?</p>
         <Form 
           onSubmit={this.onSubmit}
           initialValues={{ homePageFilter: '0' }}
