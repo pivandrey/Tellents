@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom'
 
 import Register from './Register';
 import Login from './Login';
 
+import { addNewUser } from '../actions/authUserActions';
 import { 
   showModalRegistration, 
   closeModalRegistration, 
   showModalLogin, 
   closeModalLogin 
-} from '../actions/authActions';
+} from '../actions/authModalActions';
 
 class Auth extends Component {
 
@@ -30,16 +32,26 @@ class Auth extends Component {
     this.props.closeModalLogin();
   }
 
+  registrateUser = (values) => {
+    this.props.addNewUser(values);
+  }
+
   render() {
     const { showLogin, showRegister } = this.props
     return(
       <div>
+        <Link to='/dashboard'>go to dashboard</Link>
         {!showRegister && !showLogin && <div>
-          <a href="#" onClick={this.handleShowModalRegistration}>Register</a><br />
-          <a href="#" onClick={this.handleShowModalLogin}>Login</a>
+          <a href="/#" onClick={this.handleShowModalRegistration}>Register</a><br />
+          <a href="/#" onClick={this.handleShowModalLogin}>Login</a>
         </div>}
-        {showRegister && <Register closeModal={this.handleCloseModalRegistration}/>}
-        {showLogin && <Login closeModal={this.handleCloseModalLogin} />}
+        {showRegister && 
+        <Register 
+          closeModal={this.handleCloseModalRegistration}
+          registrateUser={this.registrateUser}
+        />}
+        {showLogin && 
+        <Login closeModal={this.handleCloseModalLogin} />}
       </div>
     )
   }
@@ -47,8 +59,8 @@ class Auth extends Component {
 
 const mapStateToProps = store => {
   return {
-    showLogin: store.auth.showModalLogin,
-    showRegister: store.auth.showModalRegistration,
+    showLogin: store.authModal.showModalLogin,
+    showRegister: store.authModal.showModalRegistration,
   }
 };
 
@@ -58,6 +70,7 @@ const mapDispatchToProps = dispatch => bindActionCreators(
     closeModalRegistration, 
     showModalLogin, 
     closeModalLogin,
+    addNewUser,
   },
   dispatch
 );

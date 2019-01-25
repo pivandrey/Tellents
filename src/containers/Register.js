@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { Form, Field } from 'react-final-form'
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
-
-const onSubmit = async values => {
-  await sleep(300)
-  window.alert(JSON.stringify(values, 0, 2))
-}
-
 class Register extends Component {
+
+  onSubmit = (values) => {
+    this.props.registrateUser(values)
+  }
 
   render() {
     const { closeModal } = this.props
@@ -17,7 +14,7 @@ class Register extends Component {
         <h2>Please Sign Up</h2>
         <p>Join over 2 million tallents already using Tellents. Start now for free!</p>
         <Form 
-          onSubmit={onSubmit}
+          onSubmit={this.onSubmit}
           render={({ handleSubmit, form, submitting, pristine, values }) => (
             <form onSubmit={handleSubmit}>
               <div>
