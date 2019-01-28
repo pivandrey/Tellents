@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Field } from 'react-final-form';
+import { Link } from 'react-router-dom'
 
 import './dashboardContentStyle.css'
 
@@ -25,28 +26,8 @@ class ContentHeader extends Component {
                 />
               </div>
               <div>
-                <label className="radio-block1">
-                  <Field
-                    name="homePageFilter"
-                    id="jobs-filter-1"
-                    value="0"
-                    component="input"
-                    type="radio"
-                    className="radio-block"
-                  />
-                  Jobs
-                </label>
-                <label className="radio-block2">
-                  <Field
-                    name="homePageFilter"
-                    id="talents-filter-2"
-                    value="1"
-                    component="input"
-                    type="radio"
-                    className="radio-block"
-                  />
-                  Talents
-                </label>
+                <Link to='/dashboard/find/job'><label className="radio-block1"> Jobs</label></Link>
+                <Link to='/dashboard/find/talent'><label className="radio-block2">Talents</label></Link>
               </div>
               <div>
                 <button type="submit" className="content-header-submit">S

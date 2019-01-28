@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import './style/filter.css'
+import './style/filterJobs.css'
 
 class FilterJobs extends Component {
 

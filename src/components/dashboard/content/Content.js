@@ -5,6 +5,7 @@ import MainContentJobs from '../../../containers/dashboardContent/MainContentJob
 import MainContentTalents from '../../../containers/dashboardContent/MainContentTalents'
 import JobBoxesHeader from './JobBoxesHeader'
 import ContentHeader from './ContentHeader'
+import AddJobModal from '../../../containers/AddJobModal';
 
 import './dashboardContentStyle.css'
 
@@ -12,6 +13,7 @@ class Content extends Component {
 
   render() {
     const { fullName } = this.props;
+    const jobModal = this.props.jobModal;
     return(
       <div className="dashboard-content">
         <ContentHeader fullName={fullName} />
@@ -21,7 +23,12 @@ class Content extends Component {
             <Route path="/dashboard/find/job" component={MainContentJobs} />
             <Route path="/dashboard/find/talent" component={MainContentTalents} />
           </Switch>
-          <button className="btn-add-jobs">Start New Project</button>
+          <button 
+            className="btn-add-jobs"
+            onClick={this.props.showModal}
+          >Start New Project</button>
+          {jobModal &&
+          <AddJobModal />}
         </div>
       </div>
     )

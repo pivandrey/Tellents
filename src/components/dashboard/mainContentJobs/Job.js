@@ -5,13 +5,20 @@ import '../../../fonts/font.css'
 
 class Job extends Component {
 
+  getDate = () => {
+    const data = this.props.data
+    const x = Date.parse(new Date());
+    const date = Math.round((x - Date.parse(data.created_at)) / 86400000)
+    return date
+  }
+
   render() {
     const data = this.props.data
     return(
       <div className="job-box">
         <div className="job-box-header flexbox">
           <div className="job-box-title">
-            <p>{data.created_at}</p>
+            <p>{this.getDate()} days ago</p>
             <p>{data.title}</p>
           </div>
           <div className="job-box-header-panel">
@@ -67,5 +74,9 @@ class Job extends Component {
     )
   }
 }
+
+
+const x = new Date();
+console.log(Date.parse(x));
 
 export default Job

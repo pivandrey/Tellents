@@ -1,0 +1,19 @@
+.modal-window {
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 60%;
+  min-height: 1000px;
+  background: white;
+  z-index: 1000;
+  padding: 30px;
+  color: #4b5053;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  outline: 0;
+}

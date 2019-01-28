@@ -40,7 +40,7 @@ class Auth extends Component {
     const { showLogin, showRegister } = this.props
     return(
       <div>
-        <Link to='/dashboard'>go to dashboard</Link>
+        <Link to='/dashboard/find/job'>go to dashboard</Link>
         {!showRegister && !showLogin && <div>
           <a href="/#" onClick={this.handleShowModalRegistration}>Register</a><br />
           <a href="/#" onClick={this.handleShowModalLogin}>Login</a>

@@ -1,0 +1,132 @@
+.talent-box {
+  width: 47%;
+  background: white;
+  margin: 0 10px 20px 10px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+  border: solid 1px #cccccc;
+  cursor: pointer;
+  background-color: #ffffff;
+  border-radius: 7px;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 350px;
+  transition: all ease 0.25s;
+}
+
+.talent-box:hover {
+  box-shadow:  0px 0px 2px 3px rgba(21,164,250, 0.9);
+  border: solid 1px #15a4fa;
+  transition: all ease 0.25s;
+}
+
+.talent-box-header {
+  border-radius: 7px 7px 0 0;
+  background-color: #f6f6f6;
+  overflow: hidden;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jox-box-footer {
+  min-height: 72px;
+  padding: 0 25px;
+  background-color: rgba(21,164,250, 0.1);
+  border-radius: 0 0 7px 7px;
+  overflow: hidden;
+  color: #4b5053;
+  align-items: center;
+}
+
+.promo-title {
+  color: #15a4fa;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.promo-description {
+  font-size: 13px;
+  color: #4b5053;
+  height: 1.4em;
+  overflow: hidden;
+  word-break: break-all;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.job-box-footer-btn {
+  height: 32px;
+  margin: auto 0;
+  white-space: normal;
+  font-weight: bold;
+  background-color: #15a4fa;
+  color: #fff;
+  border-color: #15a4fa;
+  outline: none;
+  padding: 6px 25px;
+  font-size: 13px;
+  transition: all ease 0.25s;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  text-transform: uppercase;
+}
+
+.flexbox {
+  display: flex;
+  justify-content: space-between
+}
+
+.talent-box-body {
+  padding: 10px 20px;
+  width: 90%;
+  color: #4b5053;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.talent-box-tips {
+  width: 20%;
+}
+
+.tip {
+  color: #586574;
+  font-size: 12px;
+  position: relative;
+  padding: 5px 15px 5px 25px;
+  border-right: 1px solid #f6f6f6;
+}
+
+.talent-box-content {
+  width: 80%;    
+  padding: 0 15px;
+}
+
+.talent-box-descr {
+  height: 56px;
+}
+
+.skill-tags-block {
+  height: 40px;
+  overflow: hidden;
+  margin-top: 18px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.skill-tags-block p {
+  margin: 7px 2px;
+  padding: 5px;
+  font-size: 10px;
+  line-height: 11px;
+  color: #15a4fa;
+  border: 1px solid #15a4fa;
+  border-radius: 15px;
+  float: left;
+  cursor: pointer;
+}

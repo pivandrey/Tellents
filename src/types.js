@@ -4,3 +4,5 @@ export const SHOW_MODAL_LOGIN = 'SHOW_MODAL_LOGIN';
 export const CLOSE_MODAL_LOGIN = 'CLOSE_MODAL_LOGIN';
 export const ADD_NEW_USER = 'ADD_NEW_USER';
 export const GET_ID_JOB = 'GET_ID_JOB';
+export const SHOW_MODAL_ADD_JOB = 'SHOW_MODAL_ADD_JOB';
+export const CLOSE_MODAL_ADD_JOB = 'CLOSE_MODAL_ADD_JOB';
