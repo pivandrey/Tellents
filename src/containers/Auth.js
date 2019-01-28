@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import Register from './Register';
 import Login from './Login';
 
-import { addNewUser } from '../actions/authUserActions';
+import { addNewUser, loginUser } from '../actions/authUserActions';
 import { 
   showModalRegistration, 
   closeModalRegistration, 
@@ -36,6 +36,10 @@ class Auth extends Component {
     this.props.addNewUser(values);
   }
 
+  loginUser = (values) => {
+    this.props.loginUser(values);
+  }
+
   render() {
     const { showLogin, showRegister } = this.props
     return(
@@ -51,7 +55,10 @@ class Auth extends Component {
           registrateUser={this.registrateUser}
         />}
         {showLogin && 
-        <Login closeModal={this.handleCloseModalLogin} />}
+        <Login 
+          closeModal={this.handleCloseModalLogin}
+          loginUser={this.loginUser}
+        />}
       </div>
     )
   }
@@ -71,6 +78,7 @@ const mapDispatchToProps = dispatch => bindActionCreators(
     showModalLogin, 
     closeModalLogin,
     addNewUser,
+    loginUser,
   },
   dispatch
 );

@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { Form, Field } from 'react-final-form'
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
-
-const onSubmit = async values => {
-  await sleep(300)
-  window.alert(JSON.stringify(values, 0, 2))
-}
-
 class Login extends Component {
+
+  onSubmit = (values) => {
+    this.props.loginUser(values)
+  }
 
   render() {
     const { closeModal } = this.props
@@ -19,7 +16,7 @@ class Login extends Component {
         <a href="#/">Sign in with Google</a>
         <p>or</p>
         <Form 
-          onSubmit={onSubmit}
+          onSubmit={this.onSubmit}
           render={({ handleSubmit, form, submitting, pristine, values }) => (
             <form onSubmit={handleSubmit}>
               <div>

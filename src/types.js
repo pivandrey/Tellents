@@ -6,3 +6,5 @@ export const ADD_NEW_USER = 'ADD_NEW_USER';
 export const GET_ID_JOB = 'GET_ID_JOB';
 export const SHOW_MODAL_ADD_JOB = 'SHOW_MODAL_ADD_JOB';
 export const CLOSE_MODAL_ADD_JOB = 'CLOSE_MODAL_ADD_JOB';
+export const LOGIN_USER = 'LOGIN_USER';
+export const AUTH_USER = 'AUTH_USER';

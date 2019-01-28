@@ -46,7 +46,7 @@ class Talent extends Component {
           </div>
           <div className="talent-box-content">
             <div className="talent-box-descr">
-              <p>No Introduction set yet</p>
+              {data.profession ? <p>{data.profession.description}</p> : <p>No Introduction set yet</p>}
             </div>
             <div className="skill-tags-block">
               {data.skill_tags[0] ? <p>{data.skill_tags[0].name}</p> : <span></span>}
