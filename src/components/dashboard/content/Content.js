@@ -16,10 +16,13 @@ class Content extends Component {
       <div className="dashboard-content">
         <ContentHeader fullName={fullName} />
         <JobBoxesHeader />
-        <Switch>
-          <Route path="/dashboard/find/job" component={MainContentJobs} />
-          <Route path="/dashboard/find/talent" component={MainContentTalents} />
-        </Switch>
+        <div className="dashboard-main-content">
+          <Switch>
+            <Route path="/dashboard/find/job" component={MainContentJobs} />
+            <Route path="/dashboard/find/talent" component={MainContentTalents} />
+          </Switch>
+          <button className="btn-add-jobs">Start New Project</button>
+        </div>
       </div>
     )
   }

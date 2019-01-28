@@ -31,6 +31,8 @@
 
 .dashboard-content {
   padding: 20px 20px;
+  max-width: 1366px;
+  margin: 0 auto;
 }
 
 .content-header-flex {
@@ -89,8 +91,9 @@
   width: 16%;
   background: #dde2e6;
   border-radius: 8px;
-  padding: 15px;
+  padding: 25px 15px;
   text-align: center;
+  height: 16px;
 }
 
 .jobBoxes-sort {
@@ -100,6 +103,7 @@
   padding: 15px;
   display: flex;
   justify-content: flex-end;
+  height: 20px;
 }
 
 .jobBoxes-header-jobs {
@@ -112,4 +116,26 @@
 
 .jobBoxes-header-jobs label, .jobBoxes-header-talents label {
   cursor: pointer;
+}
+
+.dashboard-main-content {
+  display: flex;
+}
+
+
+.btn-add-jobs {
+  height: 80px;
+  width: 200px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  border: none;
+  color: #15a4fa;
+  font: 18px arial;
+  cursor: pointer;
+}
+
+.btn-add-jobs:hover {
+  background: #15a4fa;
+  color: white;
 }

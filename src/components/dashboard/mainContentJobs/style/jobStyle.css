@@ -1,0 +1,145 @@
+.job-box {
+  width: 47%;
+  background: white;
+  margin: 0 10px 20px 10px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+  border: solid 1px #cccccc;
+  cursor: pointer;
+  background-color: #ffffff;
+  border-radius: 7px;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 350px;
+  transition: all ease 0.25s;
+}
+
+.job-box:hover {
+    box-shadow:  0px 0px 2px 3px rgba(21,164,250, 0.9);
+    border: solid 1px #15a4fa;
+    transition: all ease 0.25s;
+}
+
+.jox-box-user-logo {
+  width: 38px;
+  height: 38px;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.flexbox {
+  display: flex;
+  justify-content: space-between
+}
+
+.job-box-header {
+  border-radius: 7px 7px 0 0;
+    background-color: #f6f6f6;
+    overflow: hidden;
+    padding: 10px 20px;
+}
+
+.job-box-title p:first-child {
+  opacity: 0.6;
+  font-size: 12px;
+  color: #586574;
+}
+
+.job-box-title p:last-child {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #4b5053;
+}
+
+.job-box-header-panel {
+  overflow: visible;
+  padding: 5px 10px 5px 15px;
+  font-size: 12px;
+  width: auto;
+  max-width: 60%;
+  background-color: #fff;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  border-color: #e5e5e5;
+  border: 1px solid transparent;
+  color: #4b5053;
+  border-radius: 7px;
+}
+
+.job-header-panel-text span:last-child {
+  font-size: 14px;
+  font-weight: 600;
+  color: #f5a623;
+}
+
+.job-box-header-panel-user {
+  color: #15a4fa;
+  font-size: 12px;
+}
+
+.job-box-body {
+  height: 60%;
+}
+
+.jox-box-tips {
+  border-bottom: 1px solid #f6f6f6;
+  padding: 10px 20px;
+  color: #4b5053;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.job-box-descr {
+  padding: 10px 20px;
+  color: #4b5053;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -.25px;
+}
+
+.jox-box-footer {
+  min-height: 72px;
+  padding: 0 25px;
+  background-color: rgba(21,164,250, 0.1);
+  border-radius: 0 0 7px 7px;
+  overflow: hidden;
+  color: #4b5053;
+  align-items: center;
+}
+
+.promo-title {
+  color: #15a4fa;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.promo-description {
+  font-size: 13px;
+  color: #4b5053;
+  height: 1.4em;
+  overflow: hidden;
+  word-break: break-all;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.job-box-footer-btn {
+  height: 32px;
+  margin: auto 0;
+  white-space: normal;
+  font-weight: bold;
+  background-color: #15a4fa;
+  color: #fff;
+  border-color: #15a4fa;
+  outline: none;
+  padding: 6px 25px;
+  font-size: 13px;
+  transition: all ease 0.25s;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  text-transform: uppercase;
+}

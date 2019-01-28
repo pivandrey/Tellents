@@ -12,7 +12,6 @@ class MainContentTalents extends Component {
       <div className="main-content">
         <FilterTalents />
         <ListOfTalents />
-        <button className="btn-add-jobs">Start New Project</button>
       </div>
     )
   }

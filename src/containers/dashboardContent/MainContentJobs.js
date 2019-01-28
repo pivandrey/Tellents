@@ -12,7 +12,6 @@ class MainContentJobs extends Component {
       <div className="main-content">
         <FilterJobs />
         <ListOfJobs data={jobs}/>
-        <button className="btn-add-jobs">Start New Project</button>
       </div>
     )
   }

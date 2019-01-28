@@ -1,0 +1,79 @@
+.filter1 {
+  width: 18%;
+  background: white;
+  padding: 30px 15px;
+  border-radius: 6px;
+  font: 13px arial;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.filter1 div {
+  padding: 15px 5px;
+  border-bottom: 1px solid #d8dcdf;
+}
+
+.filter1 div:last-child {
+  border-bottom: none;
+}
+
+.filter1 div p {
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 10px;
+  color: #4b5053;
+}
+
+.filter-checkbox label {
+  width: 50%;
+  display: block;
+  padding: 2px 0 2px 0;
+  color: #4b5053;
+  font-size: 14px;    
+  line-height: 1.4;
+  letter-spacing: -.25px;
+  cursor: pointer;
+}
+
+.filter-checkbox label input {
+  margin-right: 8px;
+  display: block;
+  float: left;
+}
+
+.filter-checkbox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.payment-min, .payment-max {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 5px 0;
+  max-width: 30%;
+  height: 20px;
+  padding: 6px 12px;
+  font-size: 14px;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #d9dada;
+  border-radius: 30px;
+}
+
+.payment-submit {
+  width: 100%;
+  color: #fff;
+  background-color: #15a4fa;
+  border: none;
+  padding: 6px 25px;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+  border-radius: 30px;
+  transition: all ease 0.25s;
+  cursor: pointer;
+}
+
+.payment-between {
+  display: inline-block;
+  margin: 0 8px;
+}

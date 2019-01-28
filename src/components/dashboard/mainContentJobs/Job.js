@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 
-import './jobStyle.css'
+import './style/jobStyle.css'
+import '../../../fonts/font.css'
 
 class Job extends Component {
 
@@ -8,14 +9,59 @@ class Job extends Component {
     const data = this.props.data
     return(
       <div className="job-box">
-        <div className="job-box-header">
+        <div className="job-box-header flexbox">
           <div className="job-box-title">
             <p>{data.created_at}</p>
             <p>{data.title}</p>
           </div>
           <div className="job-box-header-panel">
-            
+            <div className="flexbox job-header-panel-text">
+              <img src={data.user.image.url} alt="logo" className="jox-box-user-logo" />
+              <p className="icon-badge-flat"><span className="path-1"></span></p>
+              {data.user.total_rate ? <span>{data.user.total_rate}</span> : <span>N/A</span>}
+            </div>
+            <div className="job-box-header-panel-user">
+              <p>{data.user.full_name}</p>
+            </div>
           </div>
+        </div>
+        <div className="job-box-body">
+          <div className="jox-box-tips flexbox">
+            <div className="tip">
+              <p className="icon icon-location"></p>
+              {data.user.country ? <p>{data.user.country}</p> : <p></p>}
+            </div>
+            <div className="tip">
+              <p className="icon icon-clock"></p>
+              {(data.commitment === 'decide_later') ? <p>N/A</p> : <p>&lt;{data.commitment.slice(-2)}h</p>}
+            </div>
+            <div className="tip">
+              <p className="icon icon-award"></p>
+              {<p>{data.level.substr(0, 3)}</p>}
+            </div>
+            <div className="tip">
+              <p className="icon icon-timer"></p>
+              {<p>{data.period}{data.period_type.substr(0, 1)}</p>}
+            </div>
+            <div className="tip">
+              <p className="icon icon-clock"></p>
+              {(data.time_type) ? <p>{data.time_type}</p> : <p>N/A</p>}
+            </div>
+          </div>
+          <div className="job-box-descr">
+            <p>{data.description}</p>
+          </div>
+        </div>
+        <div className="jox-box-footer flexbox">
+          <div className="jox-box-promo">
+            <div className="promo-title">
+              <p>{data.promotion_title}</p>
+            </div>
+            <div className="promo-description">
+              <p>{data.promotion_description}</p>
+            </div>
+          </div>
+          <button className="job-box-footer-btn">Free</button>
         </div>
       </div>
     )

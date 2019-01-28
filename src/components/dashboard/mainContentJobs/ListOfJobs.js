@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 import Job from './Job'
 
-import './listOfJobsStyle.css'
+import './style/listOfJobsStyle.css'
 
 class ListOfJobs extends Component {
   render() {
@@ -18,6 +18,7 @@ class ListOfJobs extends Component {
             />
           ))
         }
+        <button className="show-more">Load more</button>
       </div>
     )
   }
