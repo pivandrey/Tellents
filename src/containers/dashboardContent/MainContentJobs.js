@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as axios  from 'axios';
+import { bindActionCreators } from 'redux';
 
 import FilterJobs from '../../components/dashboard/mainContentJobs/FilterJobs'
 import ListOfJobs from '../../components/dashboard/mainContentJobs/ListOfJobs'
 
+import { fetchJobs } from '../../actions/jobsCardsActions'
+
 class MainContentJobs extends Component {
 
-  state = {
-    items: [],
+  componentDidMount() {
+    this.props.fetchJobs()
   }
 
   render() {
@@ -28,6 +30,14 @@ const mapStateToProps = store => {
   }
 };
 
+const mapDispatchToProps = dispatch => bindActionCreators(
+  {
+    fetchJobs,
+  },
+  dispatch
+);
+
 export default connect(
   mapStateToProps,
+  mapDispatchToProps, 
 )(MainContentJobs);

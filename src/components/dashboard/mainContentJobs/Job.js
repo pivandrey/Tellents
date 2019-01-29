@@ -14,6 +14,7 @@ class Job extends Component {
 
   render() {
     const data = this.props.data
+    console.log(data)
     return(
       <div className="job-box">
         <div className="job-box-header flexbox">
@@ -23,7 +24,9 @@ class Job extends Component {
           </div>
           <div className="job-box-header-panel">
             <div className="flexbox job-header-panel-text">
-              <img src={data.user.image.url} alt="logo" className="jox-box-user-logo" />
+              {data.user ? 
+              <img src={data.user.image.url} alt="logo" className="jox-box-user-logo" /> : 
+              <p>logo</p>}
               <p className="icon-badge-flat"><span className="path-1"></span></p>
               {data.user.total_rate ? <span>{data.user.total_rate}</span> : <span>N/A</span>}
             </div>

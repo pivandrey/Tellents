@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
+import * as axios  from 'axios';
 
 import MainContentJobs from '../../../containers/dashboardContent/MainContentJobs'
 import MainContentTalents from '../../../containers/dashboardContent/MainContentTalents'

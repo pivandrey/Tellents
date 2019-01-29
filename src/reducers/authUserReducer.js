@@ -13,22 +13,6 @@ const initialState = {
 const authUserReducer = handleActions(
   {
     [TYPES.ADD_NEW_USER]: (state, action) => {
-      const user = {
-        email: action.payload.email,
-        first_name: action.payload.firstName,
-        last_name: action.payload.lastName,
-        password: action.payload.password,
-        config_name: "default",
-        confirm_success_url: "https://floating-atoll-63112.herokuapp.com/",
-      }
-      axios
-        .post(`https://floating-atoll-63112.herokuapp.com/api/auth`, user)
-        .then(res => {
-          console.log(res);
-        }) 
-        .catch(res => {
-          console.log(res);
-        })
       return { 
         ...state,
       };
@@ -42,7 +26,7 @@ const authUserReducer = handleActions(
         email: action.payload.email,
         password: action.payload.password,
       }
-    },
+    },/* 
     [TYPES.AUTH_USER]: (state, action) => {
       const token = state.token;
       const email = state.email;
@@ -56,7 +40,7 @@ const authUserReducer = handleActions(
       return {
         ...state,
       }
-    },
+    }, */
   },
   initialState
 )

@@ -12,6 +12,10 @@ const initialState = {
   {
     [TYPES.GET_ID_JOB]: (state, action) => ({
       ...state
+    }),
+    [TYPES.GET_TALENTS]: (state, action) => ({
+      ...state,
+      talents: action.payload,
     })
   },
   initialState

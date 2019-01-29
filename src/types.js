@@ -8,3 +8,7 @@ export const SHOW_MODAL_ADD_JOB = 'SHOW_MODAL_ADD_JOB';
 export const CLOSE_MODAL_ADD_JOB = 'CLOSE_MODAL_ADD_JOB';
 export const LOGIN_USER = 'LOGIN_USER';
 export const AUTH_USER = 'AUTH_USER';
+export const GET_COUNTRIES = 'GET_COUNTRIES';
+export const GET_LANGUAGES = 'GET_LANGUAGES';
+export const GET_JOBS = 'GET_JOBS';
+export const GET_TALENTS = 'GET_TALENTS';

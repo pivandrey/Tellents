@@ -1,29 +1,30 @@
 import { createAction } from 'redux-actions';
-import * as TYPES from '../types'
-import * as axios  from 'axios';
+import * as TYPES from '../types';
 
-export const addNewUser = createAction(TYPES.ADD_NEW_USER);
-export function loginUser (values) {
-  const user = {
-    email: values.email,
-    password: values.password,
-  };
-  
+const Auth = require ('j-toker');
+
+Auth.configure({
+  apiUrl: 'https://floating-atoll-63112.herokuapp.com/api',
+});
+
+export function addNewUser (values) {
   return dispatch => {
-    axios
-    .post(`https://floating-atoll-63112.herokuapp.com/api/auth/sign_in`, user)
-    .then(res => {
-      console.log(res)
-      const token = res.headers['access-token'];
-      const firstName = res.data.data.first_name;
-      const lastName = res.data.data.last_name;
-      const email = res.data.data.email;
-      const password = values.password;
-      const userData = {token, firstName, lastName, email, password};
-      dispatch({
-        type: TYPES.LOGIN_USER,
-        payload: userData,
-      })
+    Auth.emailSignUp({
+      email: values.email,
+      password: values.password,
+      password_confirmation: values.password,
+      config_name: "default",
+      first_name: values.firstName,
+      last_name: values.lastName,
+    })
+  }
+}
+
+export function loginUser (values) {
+  return dispatch => {
+    Auth.emailSignIn({
+      email: values.email,
+      password: values.password,
     })
   }
 }

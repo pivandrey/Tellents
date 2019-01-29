@@ -1,10 +1,8 @@
 import { handleActions } from 'redux-actions';
 import * as TYPES from '../types'
 
-import defaultJobs from '../default/defaultJobs'
-
 const initialState = {
-  jobs: defaultJobs,
+  jobs: [],
   curentJob: '',
 }
 
@@ -12,6 +10,10 @@ const initialState = {
   {
     [TYPES.GET_ID_JOB]: (state, action) => ({
       ...state
+    }),
+    [TYPES.GET_JOBS]: (state, action) => ({
+      ...state,
+      jobs: action.payload,
     })
   },
   initialState

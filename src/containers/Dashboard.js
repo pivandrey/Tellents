@@ -6,6 +6,8 @@ import Header from '../components/dashboard/DashboardHeader'
 import Content from '../components/dashboard/content/Content'
 
 import { showModalAddJob } from '../actions/addJobActions'
+import { fetchCountries } from '../actions/countriesActions'
+import { fetchLanguages } from '../actions/languageActions'
 
 import '../components/dashboard/dashboardStyle.css'
 
@@ -15,6 +17,17 @@ class Dashboard extends Component {
     const { firstName, lastName } = this.props;
     const fullName = '' + firstName + ' ' + lastName
     return fullName
+  }
+
+  getData = () => {
+    this.props.fetchCountries()
+    this.props.fetchLanguages()
+    this.props.fetchJobs()
+  }
+
+  componentDidMount() {
+    this.props.fetchCountries();
+    this.props.fetchLanguages();
   }
 
   render() {
@@ -38,17 +51,20 @@ const mapStateToProps = store => {
     firstName: store.authUser.firstName,
     lastName: store.authUser.lastName,
     addJobModal: store.addJobModal.showModalAddJob,
+    token: store.authUser.token,
   }
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
-    showModalAddJob
+    showModalAddJob,
+    fetchCountries,
+    fetchLanguages,
   },
   dispatch
 );
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps, 
 )(Dashboard);
