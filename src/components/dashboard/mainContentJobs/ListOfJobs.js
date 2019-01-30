@@ -5,6 +5,12 @@ import Job from './Job'
 import './style/listOfJobsStyle.css'
 
 class ListOfJobs extends Component {
+
+  handleClickBtn = () => {
+    this.props.setPage();
+    this.props.fetchJobs();
+  }
+
   render() {
     const data = this.props.data
     return(
@@ -18,7 +24,7 @@ class ListOfJobs extends Component {
             />
           ))
         }
-        <button className="show-more">Load more</button>
+        <button className="show-more" onClick={this.handleClickBtn} >Load more</button>
       </div>
     )
   }

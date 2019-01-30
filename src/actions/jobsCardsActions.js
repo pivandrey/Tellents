@@ -8,28 +8,42 @@ export const fetchJobs = () => async (dispatch, getState) => {
   try {
     const state =  getState();
     const filterState = state.filterJob;
-    let urlHistory = '/dashboard/find/job'
+    const searchRequest = state.search.search;
+    const sort = state.sort.sort;
+    const pageForUrl = state.page.page;
+
+    let urlHistory = '/dashboard/find/job';
     let urlAPI = `/jobs/search?`;
     let requestOption = {};
+
     if (filterState) {
       for (let key in filterState) {
         if (filterState[key]) {
           requestOption[key] = filterState[key];
         }
-      }
+      };
+
+      if(searchRequest) requestOption['q'] = searchRequest;
+      if(sort) requestOption['sort'] = sort;
+
       urlAPI += queryString.stringify({
-        page: 1,
+        page: pageForUrl,
         q: JSON.stringify(
           requestOption,
         ),
-      })
+      });
+
       if(queryString.stringify(requestOption)) {
         urlHistory += "?" + queryString.stringify(requestOption)
-      }
-    }
-    history.push(urlHistory)
+      };
+    };
+
+    history.push(urlHistory);
+
     const {data} = await http().get(urlAPI, filterState);
-    dispatch(fetchJobsSuccess(data.jobs));
+
+    if(pageForUrl > 1) dispatch(fetchJobsMoreSuccess(data.jobs));
+    else dispatch(fetchJobsSuccess(data.jobs));
     
   } catch (error) {
     throw error;
@@ -39,6 +53,13 @@ export const fetchJobs = () => async (dispatch, getState) => {
 export function fetchJobsSuccess (values) {
   return {
     type: TYPES.GET_JOBS,
+    payload: values,
+  }
+}
+
+export function fetchJobsMoreSuccess (values) {
+  return {
+    type: TYPES.GET_MORE_JOBS,
     payload: values,
   }
 }

@@ -4,6 +4,23 @@ import { Link } from 'react-router-dom'
 import './dashboardContentStyle.css'
 
 class JobBoxesHeader extends Component {
+  
+  state = {
+    showSort: false,
+  }
+
+  handleShowSort = () => {
+    this.setState ({
+      showSort: !this.state.showSort,
+    })
+  };
+
+  handleClickSort = (e) => {
+    const value = e.target.value
+    this.props.clearCountPage();
+    this.props.sort(value);
+    this.props.fetchJobs();
+  };
 
   render() {
     return(
@@ -24,12 +41,36 @@ class JobBoxesHeader extends Component {
         </div>
         <div className="jobBoxes-sort">
           <p>Sort by</p>
-          <select name="jobs-sort-option">
-            <option>Relevance</option>
-            <option>Most Saved</option>
-            <option>Highest score</option>
-            <option>Most Hired</option>
-          </select>
+          <button className="sort-show-btn" onClick={this.handleShowSort}>
+            <span>Relevance</span>
+          </button>
+          {this.state.showSort &&
+          <div className="sort-show-block">
+            <label className="sort-show-item"><input 
+            type="radio" 
+            name="sort" 
+            value="newest" 
+            onClick={this.handleClickSort}
+          />Newest</label>
+          <label className="sort-show-item"><input 
+            type="radio" 
+            name="sort" 
+            value="budget" 
+            onClick={this.handleClickSort}
+          />Highest budget</label>
+          <label className="sort-show-item"><input 
+            type="radio" 
+            name="sort" 
+            value="relevance" 
+            onClick={this.handleClickSort}
+          />Relevance</label>
+          <label className="sort-show-item"><input 
+            type="radio" 
+            name="sort" 
+            value="longterm" 
+            onClick={this.handleClickSort}
+          />Long term</label>
+          </div>}
           <p>Result:</p>
         </div>
       </div>

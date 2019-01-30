@@ -7,6 +7,9 @@ import talentsCardsReducer from './talentsCardsReducer'
 import CountriesReducer from './CountriesReducer'
 import LanguagesReducer from './languagesReducer'
 import filterJobReducer from './filterJobReducer'
+import searchReducer from './searchReducer'
+import sortReducer from './sortReducer';
+import pageReducer from './pageReducer';
 
 export const rootReducer = combineReducers ({
   authModal: authModalReducer,
@@ -17,4 +20,7 @@ export const rootReducer = combineReducers ({
   countries: CountriesReducer,
   languages: LanguagesReducer,
   filterJob: filterJobReducer,
+  search: searchReducer,
+  sort: sortReducer,
+  page: pageReducer,
 })

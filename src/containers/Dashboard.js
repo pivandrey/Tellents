@@ -8,6 +8,10 @@ import Content from '../components/dashboard/content/Content'
 import { showModalAddJob } from '../actions/addJobActions'
 import { fetchCountries } from '../actions/countriesActions'
 import { fetchLanguages } from '../actions/languageActions'
+import { setSearchRequest } from '../actions/searchActions'
+import { fetchJobs } from '../actions/jobsCardsActions'
+import { sort } from '../actions/sortActions'
+import { clearCountPage } from '../actions/pageActions'
 
 import '../components/dashboard/dashboardStyle.css'
 
@@ -17,12 +21,6 @@ class Dashboard extends Component {
     const { firstName, lastName } = this.props;
     const fullName = '' + firstName + ' ' + lastName
     return fullName
-  }
-
-  getData = () => {
-    this.props.fetchCountries()
-    this.props.fetchLanguages()
-    this.props.fetchJobs()
   }
 
   componentDidMount() {
@@ -40,6 +38,10 @@ class Dashboard extends Component {
           fullName={this.fullName} 
           jobModal={jobModal}
           showModal={showModalAddJob}
+          setSearchRequest={this.props.setSearchRequest}
+          fetchJobs={this.props.fetchJobs}
+          sort={this.props.sort}
+          clearCountPage={this.props.clearCountPage}
         />
       </div>
     )
@@ -60,6 +62,10 @@ const mapDispatchToProps = dispatch => bindActionCreators(
     showModalAddJob,
     fetchCountries,
     fetchLanguages,
+    setSearchRequest,
+    fetchJobs,
+    sort,
+    clearCountPage,
   },
   dispatch
 );

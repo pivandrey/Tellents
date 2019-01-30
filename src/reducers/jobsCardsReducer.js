@@ -14,6 +14,10 @@ const initialState = {
     [TYPES.GET_JOBS]: (state, action) => ({
       ...state,
       jobs: action.payload,
+    }),
+    [TYPES.GET_MORE_JOBS]: (state, action) => ({
+      ...state,
+      jobs: state.jobs.concat(action.payload),
     })
   },
   initialState

@@ -1,7 +1,7 @@
 import { createAction } from 'redux-actions';
 import * as TYPES from '../types';
 
-const Auth = require ('j-toker');
+import Auth from 'j-toker';
 
 Auth.configure({
   apiUrl: 'https://floating-atoll-63112.herokuapp.com/api',

@@ -17,6 +17,7 @@ import FilterProposals from './FilterComponents/FilterProposals';
 
 import { fetchJobs } from '../../../actions/jobsCardsActions';
 import { addFilter, setFilterFromHistory, addFilterFromForm } from '../../../actions/filterJobActions';
+import { clearCountPage } from '../../../actions/pageActions';
 
 import './style/filterJobs.css';
 
@@ -39,13 +40,15 @@ class FilterJobs extends Component {
   };
 
   handleClickSubmit = (values) => {
+    this.props.clearCountPage();
     this.props.addFilterFromForm(values);
-    this.props.fetchJobs(this.props.filter);
+    this.props.fetchJobs();
   }
 
   changeFilter = (values) => {
+    this.props.clearCountPage();
     this.props.addFilter(values);
-    this.props.fetchJobs(this.props.filter);
+    this.props.fetchJobs();
   };
 
   componentDidMount () {
@@ -100,6 +103,7 @@ const mapDispatchToProps = dispatch => bindActionCreators(
     addFilter,
     setFilterFromHistory,
     addFilterFromForm,
+    clearCountPage,
   },
   dispatch
 );
