@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Form, Field } from 'react-final-form'
-import * as axios  from 'axios';
 
 class Register extends Component {
 

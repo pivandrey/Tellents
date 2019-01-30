@@ -14,7 +14,6 @@ class Job extends Component {
 
   render() {
     const data = this.props.data
-    console.log(data)
     return(
       <div className="job-box">
         <div className="job-box-header flexbox">
@@ -43,15 +42,15 @@ class Job extends Component {
             </div>
             <div className="tip">
               <p className="icon icon-clock"></p>
-              {(data.commitment === 'decide_later') ? <p>N/A</p> : <p>&lt;{data.commitment.slice(-2)}h</p>}
+              {(!data.commitment || data.commitment === 'decide_later') ? <p>N/A</p> : <p>&lt;{data.commitment.slice(-2)}h</p>}
             </div>
             <div className="tip">
               <p className="icon icon-award"></p>
-              {<p>{data.level.substr(0, 3)}</p>}
+              {data.level ? <p>{data.level.substr(0, 3)}</p> : <p></p>}
             </div>
             <div className="tip">
               <p className="icon icon-timer"></p>
-              {<p>{data.period}{data.period_type.substr(0, 1)}</p>}
+              {(data.period && data.period_type) ? <p>{data.period}{data.period_type.substr(0, 1)}</p> : <p></p>}
             </div>
             <div className="tip">
               <p className="icon icon-clock"></p>
@@ -77,9 +76,5 @@ class Job extends Component {
     )
   }
 }
-
-
-const x = new Date();
-console.log(Date.parse(x));
 
 export default Job

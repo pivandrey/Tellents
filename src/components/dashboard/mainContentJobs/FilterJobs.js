@@ -1,101 +1,86 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import history from '../../../history'
+import { withRouter } from 'react-router-dom';
+
+import FilterAvailability from './FilterComponents/FilterAvailability';
+import FilterBudget from './FilterComponents/FilterBudget';
+import FilterExperience from './FilterComponents/FilterExperience';
+import FilterJobDelivery from './FilterComponents/FilterJobDelivery';
+import FilterLanguage from './FilterComponents/FilterLanguage';
+import FilterLocation from './FilterComponents/FilterLocation';
+import FilterPayment from './FilterComponents/FilterPayment';
+import FilterPlace from './FilterComponents/FilterPlace';
+import FilterPosted from './FilterComponents/FilterPosted';
+import FilterProposals from './FilterComponents/FilterProposals';
+
+import { fetchJobs } from '../../../actions/jobsCardsActions'
+import { addFilter, setFilter } from '../../../actions/filterJobActions'
 
 import './style/filterJobs.css'
 
 class FilterJobs extends Component {
 
+  handleClick = (e) => {
+    const value = e.target.value;
+    const name = e.target.name;
+    this.changeFilter({ [name]: value })
+  }
+
+  changeFilter = (values) => {
+    this.props.addFilter(values);
+    this.props.fetchJobs(this.props.filter)
+  }
+
+  componentDidMount () {
+    const historyOption = this.props.history.location.search;
+    const decodingOption = historyOption.slice(1).split('&').map( (filter) => {
+      const decodingObject = filter.split('=');
+      const key = decodingObject[0];
+      let value = '';
+      if (decodingObject[1]) {
+        value = decodingObject[1].replace("%2C", ",");
+      }
+      return { [key]: value }
+    })
+    this.props.setFilter(decodingOption);
+  }
+
   render() {
     return(
       <div className="filter1">
-        <div>
-          <p>Experience: </p>
-          <div className="filter-checkbox">
-            <label><input type="checkbox" name="experience" value="0" />Intern</label>
-            <label><input type="checkbox" name="experience" value="1" />Junior</label><br />
-            <label><input type="checkbox" name="experience" value="2" />Senior</label>
-            <label><input type="checkbox" name="experience" value="3" />Expert</label>
-          </div>
-        </div>
-        <div>
-          <p>Posted:</p>
-          <div className="filter-checkbox">
-            <label><input type="radio" name="posted" value="0" />24h</label>
-            <label><input type="radio" name="posted" value="1" />3d</label><br />
-            <label><input type="radio" name="posted" value="2" />1w</label>
-            <label><input type="radio" name="posted" value="3" />>1w</label>
-          </div> 
-        </div>
-        <div>
-          <p>Place:</p>
-          <div className="filter-checkbox">
-            <label><input type="checkbox" name="place" value="0" />On-line</label>
-            <label><input type="checkbox" name="place" value="1" />On-site</label>
-          </div>
-        </div>
-        <div>
-          <p>Location:</p>
-          <label><select name="location">
-            <option>Any location</option>
-          </select></label>
-        </div>
-        <div>
-          <p>Languages:</p>
-          <label><select name="language">
-            <option>Any lang</option>
-          </select></label>
-        </div>
-        <div>
-          <p>Availability:</p>
-          <div className="filter-checkbox">
-            <label><input type="checkbox" name="availability" value="0" />&lt; 20h</label>
-            <label><input type="checkbox" name="availability" value="1" />> 20h</label><br />
-            <label><input type="checkbox" name="availability" value="2" />Full-Time</label>
-            <label><input type="checkbox" name="availability" value="3" />Undefined</label>
-          </div>
-        </div>
-        <div>
-          <p>Payment:</p>
-          <div className="filter-checkbox">
-            <label><input type="checkbox" name="payment" value="0" />Fixed Price</label>
-            <label><input type="checkbox" name="payment" value="1" />Hourly</label>
-          </div>
-          <form>
-            <input type="text" name="payment-min" placeholder="40" className="payment-min" /> 
-            <span className="payment-between">to</span>
-            <input type="text" name="payment-max" placeholder="1000" className="payment-max" />
-            <button type="submit" className="payment-submit">Find</button>
-          </form>
-        </div>
-        <div>
-          <p>Budget:</p>
-          <select name="budget">
-            <option>$0 - $100</option>
-            <option>$100 - $300</option>
-            <option>$300 - $1000</option>
-            <option>>$1000</option>
-            <option>Not defined (Empty)</option>
-          </select>
-        </div>
-        <div>
-          <p>Proposals:</p>
-          <div className="filter-checkbox">
-            <label><input type="radio" name="proposals" value="0" />0 - 5</label>
-            <label><input type="radio" name="proposals" value="1" />5 - 10</label><br />
-            <label><input type="radio" name="proposals" value="2" />10 - 20</label>
-            <label><input type="radio" name="proposals" value="3" />> 20</label><br />
-            <label><input type="radio" name="proposals" value="4" />None</label>
-          </div>
-        </div>
-        <div>
-          <p>Job Delivery:</p>
-          <div className="filter-checkbox">
-            <label><input type="checkbox" name="delivery" value="0" />Not defined</label>
-            <label><input type="checkbox" name="delivery" value="1" />Less 1W</label>
-          </div>
-        </div>
+        <FilterExperience handleClick={this.handleClick} />
+        <FilterPosted handleClick={this.handleClick} />
+        <FilterPlace />
+        <FilterLocation handleClick={this.handleClick} />
+        <FilterLanguage handleClick={this.handleClick} />
+        <FilterAvailability handleClick={this.handleClick} />
+        <FilterPayment handleClick={this.handleClick} />
+        <FilterBudget handleClick={this.handleClick} />
+        <FilterProposals handleClick={this.handleClick} />
+        <FilterJobDelivery />
       </div>
     )
   }
 }
 
-export default FilterJobs
+const mapStateToProps = store => {
+  return {
+    filter: store.filterJob,
+  }
+};
+
+const mapDispatchToProps = dispatch => bindActionCreators(
+  {
+    fetchJobs,
+    addFilter,
+    setFilter,
+  },
+  dispatch
+);
+
+export default withRouter(connect(
+  mapStateToProps,
+  mapDispatchToProps, 
+)(FilterJobs));
