@@ -15,3 +15,4 @@ export const GET_TALENTS = 'GET_TALENTS';
 export const API_BASE_URL = 'https://floating-atoll-63112.herokuapp.com/api/v1/';
 export const ADD_FILTER = 'ADD_FILTER';
 export const SET_FILTERS_FROM_HISTORY = 'SET_FILTERS_FROM_HISTORY';
+export const ADD_FILTER_FROM_FORM = 'ADD_FILTER_FROM_FORM';

@@ -3,13 +3,47 @@ import React, { Component } from 'react'
 import '../style/filterJobs.css'
 
 class FilterLocation extends Component {
+
+  state = {
+    showOptionalFilter: false,
+  }
+
+  setCheckForInput = (value) => {
+    const filters = this.props.filter;
+      if (filters.indexOf(value) >= 0) {
+        return true;
+      }
+  }
+
+  showOptionalFilter = () => {
+    this.setState ({
+      showOptionalFilter: !this.state.showOptionalFilter,
+    })
+  }
+  
   render() {
+    const countries = this.props.countries;
     return(
       <div>
         <p>Location:</p>
-        <label><select name="loc">
-          <option>Any location</option>
-        </select></label>
+        <button className="filter-show-optional" onClick={this.showOptionalFilter}>
+          <span>Country(All)</span>
+        </button>
+        {this.state.showOptionalFilter &&
+        <div className="filter-optional filter-language">
+          {
+            countries.map((country) => (
+              <label key={"labelCountry" + country.id}><input
+                key={"country" + country.id}
+                type="checkbox" 
+                name="lang" 
+                value={country.name}
+                onClick={this.props.handleClick} 
+                checked={this.setCheckForInput(country.name)}
+              />{country.name}</label>
+            ))
+          }
+        </div>}
       </div>
     )
   }

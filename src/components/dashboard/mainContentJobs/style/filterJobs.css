@@ -23,7 +23,7 @@
   color: #4b5053;
 }
 
-.filter-checkbox label {
+.filter-checkbox label, .filter-optional label {
   width: 50%;
   display: block;
   padding: 2px 0 2px 0;
@@ -34,7 +34,11 @@
   cursor: pointer;
 }
 
-.filter-checkbox label input {
+.filter-optional label {
+  width: 100%;
+}
+
+.filter-checkbox label input, .filter-optional label input {
   margin-right: 8px;
   display: block;
   float: left;
@@ -49,7 +53,7 @@
   display: inline-block;
   vertical-align: middle;
   margin: 5px 0;
-  max-width: 30%;
+  width: 26%;
   height: 20px;
   padding: 6px 12px;
   font-size: 14px;
@@ -76,4 +80,44 @@
 .payment-between {
   display: inline-block;
   margin: 0 8px;
+}
+
+.filter-optional {
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 10px;
+  color: #4b5053;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -.25px;
+  background: #eee;
+}
+
+.filter-show-optional {
+  background-color: #fff;
+  padding: 3px 10px;
+  width: 100%;
+  border: 1px solid #adadad;
+  color: #333;
+  font-size: 13px;
+  font-weight: 400;
+  border-radius: 30px;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+.filter-language {
+  height: 200px;
+  overflow: auto;
+}
+
+form .paymentForm {
+  border: none !important;
+  display: inline;
+}
+
+.filter-payment {
+  border: none !important;
 }

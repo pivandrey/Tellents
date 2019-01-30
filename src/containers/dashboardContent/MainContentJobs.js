@@ -15,7 +15,6 @@ class MainContentJobs extends Component {
   }
 
   render() {
-    
     const { jobs } = this.props;
     return(
       <div className="main-content">

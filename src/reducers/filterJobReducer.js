@@ -30,6 +30,8 @@ const initialState = {
             value = state[key].replace(newFilters[key], "").slice(0, -1)
           } else if (state[key].indexOf(newFilters[key]) > 0) {
             value = state[key].replace(newFilters[key], "").replace(",,", ",")
+          } else if (key === "post" || key === "prop" || key === "bud") {
+            value = newFilters[key]
           } else value = state[key] + ',' + newFilters[key]
         } else {
           value = newFilters[key]
@@ -42,24 +44,15 @@ const initialState = {
       }
     },
     [TYPES.SET_FILTERS_FROM_HISTORY]: (state, action) => {
-      let value = '';
-      const arrayOfNewFilters = action.payload;
-      for (let index in arrayOfNewFilters) {
-        const newFilter = arrayOfNewFilters[index] 
-        for (let key in newFilter) {
-          if (newFilter[key] && newFilter[key] !== "0") {
-            value = newFilter[key]
-          
-            return {
-              ...state,
-              [key]: value,
-            }
-          } else {
-            return {
-              ...state,
-            }
-          }
-        }
+      return {
+        ...initialState,
+        ...action.payload,
+      }
+    },
+    [TYPES.ADD_FILTER_FROM_FORM]: (state, action) => {
+      return {
+        ...initialState,
+        ...action.payload,
       }
     }
   },
