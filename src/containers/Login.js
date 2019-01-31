@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Field } from 'react-final-form'
 
+import './auth.css'
+
 class Login extends Component {
 
   onSubmit = (values) => {
@@ -10,10 +12,10 @@ class Login extends Component {
   render() {
     const { closeModal } = this.props
     return(
-      <div>
+      <div className="login-block">
         <h2>Login Into Your Account</h2>
-        <a href="#/">Sign in with Facebook</a>
-        <a href="#/">Sign in with Google</a>
+        <a href="#/" className="login-btn-facebook">Sign in with Facebook</a>
+        <a href="#/" className="login-btn-google">Sign in with Google</a>
         <p>or</p>
         <Form 
           onSubmit={this.onSubmit}
@@ -36,15 +38,14 @@ class Login extends Component {
                 />
               </div>
               <div>
-                <button type="submit">
+                <button type="submit" className="login-btn-submit">
                   Start now
                 </button>
               </div>
-              <pre>{JSON.stringify(values, 0, 2)}</pre>
             </form>
           )}
         />
-        <button onClick={closeModal}>Close</button>
+        <button onClick={closeModal} className="login-btn-close">X</button>
       </div>
     )
   }

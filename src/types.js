@@ -22,3 +22,4 @@ export const SET_SEARCH_REQUEST = 'SET_SEARCH_REQUEST';
 export const SORT = 'SORT';
 export const SET_PAGE = 'SET_PAGE';
 export const CLEAR_COUNT_PAGE = 'CLEAR_COUNT_PAGE';
+export const GET_DATA_ABOUT_USER = 'GET_DATA_ABOUT_USER';

@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Link } from 'react-router-dom'
 
 import Register from './Register';
 import Login from './Login';
 
-import { addNewUser, loginUser } from '../actions/authUserActions';
+import { register, loginUser } from '../actions/authUserActions';
 import { 
   showModalRegistration, 
   closeModalRegistration, 
   showModalLogin, 
   closeModalLogin 
 } from '../actions/authModalActions';
+
+import './auth.css'
 
 class Auth extends Component {
 
@@ -33,7 +34,7 @@ class Auth extends Component {
   }
 
   registrateUser = (values) => {
-    this.props.addNewUser(values);
+    this.props.register(values);
   }
 
   loginUser = (values) => {
@@ -43,11 +44,16 @@ class Auth extends Component {
   render() {
     const { showLogin, showRegister } = this.props
     return(
-      <div>
-        <Link to='/dashboard/find/job'>go to dashboard</Link>
+      <div className="authorization-block">
         {!showRegister && !showLogin && <div>
-          <a href="/#" onClick={this.handleShowModalRegistration}>Register</a><br />
-          <a href="/#" onClick={this.handleShowModalLogin}>Login</a>
+          <a href="/#" 
+            onClick={this.handleShowModalRegistration} 
+            className="auth-btn-show-block auth-register"
+          >Register</a><br />
+          <a href="/#" 
+            onClick={this.handleShowModalLogin}
+            className="auth-btn-show-block auth-login"
+          >Login</a>
         </div>}
         {showRegister && 
         <Register 
@@ -77,7 +83,7 @@ const mapDispatchToProps = dispatch => bindActionCreators(
     closeModalRegistration, 
     showModalLogin, 
     closeModalLogin,
-    addNewUser,
+    register,
     loginUser,
   },
   dispatch

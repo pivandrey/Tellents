@@ -9,7 +9,7 @@ class ContentHeader extends Component {
   onSubmit = (values) => {
     this.props.clearCountPage();
     this.props.setSearchRequest(values.search)
-    this.props.fetchJobs();
+    this.props.fetchCards();
   }
 
   render() {

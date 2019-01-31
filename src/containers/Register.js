@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Field } from 'react-final-form'
 
+import './auth.css'
+
 class Register extends Component {
 
   onSubmit = (values) => {
@@ -11,7 +13,7 @@ class Register extends Component {
   render() {
     const { closeModal } = this.props
     return(
-      <div>
+      <div className="register-block">
         <h2>Please Sign Up</h2>
         <p>Join over 2 million tallents already using Tellents. Start now for free!</p>
         <Form 
@@ -51,15 +53,14 @@ class Register extends Component {
                 />
               </div>
               <div>
-                <button type="submit">
+                <button type="submit" className="register-btn-submit">
                   Start now
                 </button>
               </div>
-              <pre>{JSON.stringify(values, 0, 2)}</pre>
             </form>
           )}
         />
-        <button onClick={closeModal}>Close</button>
+        <button onClick={closeModal} className="register-btn-close" >X</button>
       </div>
     )
   }

@@ -1,0 +1,29 @@
+https://floating-atoll-63112.herokuapp.com/api/v1/client_jobs
+POST
+
+category: {id: 7, name: "Translation", skill_categories: [{id: 58, name: "All Translation", selected: false},…]}
+commitment: "per_week_10"
+contract_general_notes: "it's my comments for job"
+description: "description job"
+hourly_price: 100
+level: "senior"
+payment: "hourly"
+period: 1
+period_type: "month"
+price: 1200
+promotion: {id: 69, title: "Translation", description: "Any skill test defined by the client",…}
+promotion_description: "Any skill test defined by the client"
+promotion_title: "Translation"
+skill_tags: []
+time_type: "short"
+title: "new job"
+
+
+meta: {messages: ["Job was successfully posted"]}
+
+при нажатии на кнопку создания идут 2 запроса:
+1. https://floating-atoll-63112.herokuapp.com/api/v1/profile/skills
+GET
+
+2. https://floating-atoll-63112.herokuapp.com/api/v1/profile/default_promotions
+GET

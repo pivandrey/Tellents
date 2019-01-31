@@ -19,7 +19,7 @@ class Content extends Component {
         <ContentHeader 
           fullName={fullName} 
           setSearchRequest={this.props.setSearchRequest}
-          fetchJobs={this.props.fetchJobs}
+          fetchCards={this.props.fetchCards}
           clearCountPage={this.props.clearCountPage}
         />
         <JobBoxesHeader 

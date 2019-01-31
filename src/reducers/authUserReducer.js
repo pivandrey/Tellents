@@ -5,8 +5,6 @@ const initialState = {
   firstName: 'John',
   lastName: 'Jackson',
   email: '',
-  token: '',
-  password: '',
 }
 
 const authUserReducer = handleActions(
@@ -19,13 +17,19 @@ const authUserReducer = handleActions(
     [TYPES.LOGIN_USER]: (state, action) => {
       return {
         ...state,
-        token: action.payload.token,
         firstName: action.payload.firstName,
         lastName: action.payload.lastName,
         email: action.payload.email,
-        password: action.payload.password,
       }
     },
+    [TYPES.GET_DATA_ABOUT_USER]: (state, action) => {
+      return {
+        ...state,
+        firstName: action.payload.first_name,
+        lastName: action.payload.last_name,
+        email: action.payload.email,
+      }
+    }
   },
   initialState
 )

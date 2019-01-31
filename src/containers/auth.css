@@ -1,0 +1,107 @@
+.authorization-block {
+  margin: 5% auto;
+  width: 500px;
+  min-height: 200px;
+  background: rgb(226, 225, 225);
+  border: 1px solid rgb(201, 199, 199);
+  text-align: center;
+  padding: 35px 0;
+  border-radius: 8px;
+  position: relative;
+}
+
+.auth-btn-show-block {
+  font: 20px arial;
+  font-weight: bold;
+  color: rgb(92, 92, 160);
+  text-decoration: none;
+  width: auto;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.auth-btn-show-block:hover {
+  text-decoration: underline;
+}
+
+.register-block h2, .login-block h2 {
+  font-size: 24px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.39;
+  text-align: center;
+  color: #15a4fa;
+}
+
+.register-block p {
+  color: #7f7f7f;
+}
+
+.register-block form div, .login-block form div {
+  margin-top: 10px;
+}
+
+.register-block form input, .login-block form input {
+  background-color: #fff1f5;
+  border: solid 2px #cb001f;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  color: #334965;
+  padding: 5px 32px;
+  height: auto;
+  border-radius: 20px;
+}
+
+.register-btn-submit, .login-btn-submit {
+  background-color: #15a4fa;
+  color: #fff;
+  border-color: transparent;
+  outline: none;
+  font-size: 13px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 2px;    
+  padding: 5px 32px;
+  height: auto;
+  border-radius: 30px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.register-btn-close, .login-btn-close {
+  font-size: 20px;
+  margin-top: -2px;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  font-weight: bold;
+  line-height: 1;
+  color: #333;;
+  text-shadow: 0 1px 0 #fff;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+.login-btn-facebook, .login-btn-google {
+  background: #3B5998;
+  display: inline-block;
+  color: #ffffff;
+  border: none;
+  padding: 0.5em;
+  width: 10em;
+  border-radius: 30px;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+}
+
+.login-btn-google {
+  background: #dd4b39;
+  margin-left: 10px;
+}
