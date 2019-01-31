@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Form, Field } from 'react-final-form'
+
+import { closeModalAddJob } from '../actions/addJobActions'
 
 import './addJobModalStyle.css'
 
@@ -8,7 +12,7 @@ class AddJobModal extends Component {
     return(
       <div className="modal-window">
         <div className='modal-header'>
-          <button className="modal-exit">X</button>
+          <button className="modal-exit" onClick={this.props.closeModalAddJob}>X</button>
         </div>
         <div className="modal-body">
           <h1>Post a Job</h1>
@@ -217,4 +221,20 @@ class AddJobModal extends Component {
   }
 }
 
-export default AddJobModal;
+const mapStateToProps = store => {
+  return {
+    addJobModalFlag: store.addJobModal.showModalAddJob,
+  }
+};
+
+const mapDispatchToProps = dispatch => bindActionCreators(
+  {
+    closeModalAddJob,
+  },
+  dispatch
+);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps, 
+)(AddJobModal);;

@@ -1,24 +1,24 @@
 import { handleActions } from 'redux-actions';
 import * as TYPES from '../types'
 
-import defaultTalents from '../default/deafultTalents'
-
 const initialState = {
-  talents: defaultTalents,
-  curentTalent: '',
+  talents: [],
+  countTalents: '',
 }
 
- const talentsCardsReducer = handleActions(
+ const jobsTalentsReducer = handleActions(
   {
-    [TYPES.GET_ID_JOB]: (state, action) => ({
-      ...state
-    }),
     [TYPES.GET_TALENTS]: (state, action) => ({
       ...state,
-      talents: action.payload,
+      talents: action.payload.users,
+      countTalents: action.payload.meta.total_count,
+    }),
+    [TYPES.GET_MORE_TALENTS]: (state, action) => ({
+      ...state,
+      talents: state.talents.concat(action.payload.users),
     })
   },
   initialState
 )
 
-export default talentsCardsReducer
+export default jobsTalentsReducer

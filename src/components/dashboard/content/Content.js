@@ -13,7 +13,7 @@ class Content extends Component {
 
   render() {
     const { fullName } = this.props;
-    const jobModal = this.props.jobModal;
+    const jobModalFlag = this.props.jobModalFlag;
     return(
       <div className="dashboard-content">
         <ContentHeader 
@@ -22,7 +22,13 @@ class Content extends Component {
           fetchJobs={this.props.fetchJobs}
           clearCountPage={this.props.clearCountPage}
         />
-        <JobBoxesHeader sort={this.props.sort} fetchJobs={this.props.fetchJobs} clearCountPage={this.props.clearCountPage} />
+        <JobBoxesHeader 
+          sort={this.props.sort} 
+          fetchCards={this.props.fetchCards} 
+          clearCountPage={this.props.clearCountPage}
+          cardsCount={this.props.cardsCount}
+          defineJobsOrTalents={this.props.defineJobsOrTalents}
+        />
         <div className="dashboard-main-content">
           <Switch>
             <Route path="/dashboard/find/job" component={MainContentJobs} />
@@ -32,7 +38,7 @@ class Content extends Component {
             className="btn-add-jobs"
             onClick={this.props.showModal}
           >Start New Project</button>
-          {jobModal &&
+          {jobModalFlag &&
           <AddJobModal />}
         </div>
       </div>

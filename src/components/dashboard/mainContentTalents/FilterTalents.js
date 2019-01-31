@@ -1,79 +1,121 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
+import queryString from 'query-string';
+
+import FilterExperience from '../mainContentJobs/FilterComponents/FilterExperience';
+import FilterJobDoneSuccess from './FilterComponents/FilterJobDoneSuccess';
+import FilterSkillTestScore from './FilterComponents/FilterSkillTestScore';
+import FilterFreelancerRate from './FilterComponents/FilterFreelancerRate';
+import FilterLocation from '../mainContentJobs/FilterComponents/FilterLocation';
+import FilterLanguage from '../mainContentJobs/FilterComponents/FilterLanguage';
+import FilterAvailability from './FilterComponents/FilterAvailability';
+import FilterPlaceOfWork from './FilterComponents/FilterPlaceOfWork';
+
+import { clearCountPage } from '../../../actions/pageActions';
+import { addFilter, setFilterFromHistory, addFilterFromForm } from '../../../actions/filterJobActions';
+import { fetchTalents } from '../../../actions/talentsCardsActions'
 
 import './style/filterTalents.css'
 
 class FilterTalents extends Component {
 
+  handleClick = (e) => {
+    const value = e.target.value;
+    const name = e.target.name;
+    this.changeFilter({ [name]: value });
+
+    const filters = this.props.filter;
+    if (e.target.type === "radio") {
+      for (let filter in filters) {
+        if (filter === e.target.name && filters[filter] === e.target.value) {
+          e.target.checked = false
+        }
+      }
+    }
+  };
+
+  handleClickSubmit = (values) => {
+    this.props.clearCountPage();
+    this.props.addFilterFromForm(values);
+    this.props.fetchTalents();
+  }
+
+  changeFilter = (values) => {
+    this.props.clearCountPage();
+    this.props.addFilter(values);
+    this.props.fetchTalents();
+  };
+
+  componentDidMount () {
+    const historyOption = this.props.history.location.search;
+    this.props.setFilterFromHistory(queryString.parse(historyOption));
+  };
+
   render() {
+    const filter = this.props.filter;
     return(
       <div className="filter1">
-        <div>
-          <p>Experience:</p>
-          <div className="filter-checkbox">
-            <label><input type="checkbox" name="experience" value="0" />Intern</label>
-            <label><input type="checkbox" name="experience" value="1" />Junior</label><br />
-            <label><input type="checkbox" name="experience" value="2" />Senior</label>
-            <label><input type="checkbox" name="experience" value="3" />Expert</label>
-          </div>
-        </div>
-        <div>
-          <p>Job Done Success:</p>
-          <div className="filter-checkbox">
-            <label><input type="radio" name="success" value="0" />100%</label>
-            <label><input type="radio" name="success" value="1" />> 95%</label><br />
-            <label><input type="radio" name="success" value="2" />85-95%</label>
-            <label><input type="radio" name="success" value="3" />&lt; 85%</label>
-          </div>
-        </div>
-        <div>
-          <p>Skill Test Score:</p>
-          <div className="filter-checkbox">
-            <label><input type="radio" name="skill" value="0" />Best (5)</label>
-            <label><input type="radio" name="skill" value="1" />5-4.6</label><br />
-            <label><input type="radio" name="skill" value="2" />4.6-4</label>
-            <label><input type="radio" name="skill" value="3" />&lt; 4</label>
-          </div>
-        </div>
-        <div>
-          <p>Freelancer Rate:</p>
-          <div className="filter-checkbox">
-            <label><input type="radio" name="rate" value="0" />Best (5)</label>
-            <label><input type="radio" name="rate" value="1" />5-4.8</label><br />
-            <label><input type="radio" name="rate" value="2" />4.8-4.5</label>
-            <label><input type="radio" name="rate" value="3" />&lt; 4.5</label>
-          </div>
-        </div>
-        <div>
-          <p>Location:</p>
-          <label><select name="location">
-            <option>Any location</option>
-          </select></label>
-        </div>
-        <div>
-          <p>Languages:</p>
-          <label><select name="language">
-            <option>Any lang</option>
-          </select></label>
-        </div>
-        <div>
-          <p>Availability:</p>
-          <div className="filter-checkbox">
-            <label><input type="checkbox" name="availability" value="0" />&lt; 20h</label>
-            <label><input type="checkbox" name="availability" value="1" />30h</label><br />
-            <label><input type="checkbox" name="availability" value="2" />> 30h</label>
-            <label><input type="checkbox" name="availability" value="3" />Full Time</label>
-          </div>
-        </div>
-        <div>
-          <p>Place of Work:</p>
-          <div className="filter-checkbox">
-            <label><input type="checkbox" name="place" value="0" />On-Line</label>
-            <label><input type="checkbox" name="place" value="1" />On-Site</label><br />
-          </div>
-        </div>
+        <FilterExperience 
+          handleClick={this.handleClick} 
+          filter={filter.exp}
+        />
+        <FilterJobDoneSuccess 
+          handleClick={this.handleClick} 
+          filter={filter.ds}
+        />
+        <FilterSkillTestScore 
+          handleClick={this.handleClick} 
+          filter={filter.skill}
+        />
+        <FilterFreelancerRate 
+          handleClick={this.handleClick} 
+          filter={filter.rate}
+        />
+        <FilterLocation 
+          handleClick={this.handleClick} 
+          filter={filter.loc}
+          countries={this.props.countries}
+        />
+        <FilterLanguage 
+          handleClick={this.handleClick} 
+          filter={filter.lang}
+          languages={this.props.languages}
+        />
+        <FilterAvailability 
+          handleClick={this.handleClick} 
+          filter={filter.avl}
+        />
+        <FilterPlaceOfWork 
+          handleClick={this.handleClick} 
+          filter={filter.place}
+        />
       </div>
     )
   }
 }
 
-export default FilterTalents
+const mapStateToProps = store => {
+  return {
+    filter: store.filterTalents,
+    languages: store.languages.languages,
+    countries: store.countries.countries,
+  }
+};
+
+const mapDispatchToProps = dispatch => bindActionCreators(
+  {
+    fetchTalents,
+    addFilter,
+    setFilterFromHistory,
+    addFilterFromForm,
+    clearCountPage,
+  },
+  dispatch
+);
+
+export default withRouter(connect(
+  mapStateToProps,
+  mapDispatchToProps, 
+)(FilterTalents));

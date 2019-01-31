@@ -42,8 +42,8 @@ export const fetchJobs = () => async (dispatch, getState) => {
 
     const {data} = await http().get(urlAPI, filterState);
 
-    if(pageForUrl > 1) dispatch(fetchJobsMoreSuccess(data.jobs));
-    else dispatch(fetchJobsSuccess(data.jobs));
+    if(pageForUrl > 1) dispatch(fetchJobsMoreSuccess(data));
+    else dispatch(fetchJobsSuccess(data));
     
   } catch (error) {
     throw error;

@@ -13,6 +13,7 @@ export const GET_LANGUAGES = 'GET_LANGUAGES';
 export const GET_JOBS = 'GET_JOBS';
 export const GET_MORE_JOBS = 'GET_MORE_JOBS';
 export const GET_TALENTS = 'GET_TALENTS';
+export const GET_MORE_TALENTS = 'GET_MORE_TALENTS';
 export const API_BASE_URL = 'https://floating-atoll-63112.herokuapp.com/api/v1/';
 export const ADD_FILTER = 'ADD_FILTER';
 export const SET_FILTERS_FROM_HISTORY = 'SET_FILTERS_FROM_HISTORY';

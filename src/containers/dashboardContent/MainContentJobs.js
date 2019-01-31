@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Link } from 'react-router-dom'
+import { createSelector } from "reselect";
 
 import FilterJobs from '../../components/dashboard/mainContentJobs/FilterJobs'
 import ListOfJobs from '../../components/dashboard/mainContentJobs/ListOfJobs'
@@ -21,16 +21,35 @@ class MainContentJobs extends Component {
     return(
       <div className="main-content">
         <FilterJobs />
-        <ListOfJobs data={jobs} setPage={this.props.setPage} fetchJobs={this.props.fetchJobs} />
+        <ListOfJobs 
+          data={jobs} 
+          setPage={this.props.setPage} 
+          fetchJobs={this.props.fetchJobs} 
+        />
       </div>
     )
   }
 }
 
-const mapStateToProps = store => {
+const getJobs = state => state.jobs.jobs;
+const getFilters = state => state.filterJob;
+
+const getJobsSelector = createSelector(
+  [getJobs], (jobs) => {
+    return jobs
+  }
+)
+
+const getFiltersSelector = createSelector(
+  [getFilters], (filters) => {
+    return filters
+  }
+)
+
+const mapStateToProps = state => {
   return {
-    jobs: store.jobs.jobs,
-    filter: store.filterJob,
+    jobs: getJobsSelector(state),
+    filter: getFiltersSelector(state),
   }
 };
 

@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { createSelector } from "reselect";
 
 import FilterTalents from '../../components/dashboard/mainContentTalents/FilterTalents'
 import ListOfTalents from '../../components/dashboard/mainContentTalents/ListOfTalents'
 
 import { fetchTalents } from '../../actions/talentsCardsActions'
+import { setPage, clearCountPage } from '../../actions/pageActions'
 
 import './mainContent.css'
 
 class MainContentTalents extends Component {
 
   componentDidMount() {
+    this.props.clearCountPage();
     this.props.fetchTalents()
   }
 
@@ -20,7 +23,11 @@ class MainContentTalents extends Component {
     return(
       <div className="main-content">
         <FilterTalents />
-        <ListOfTalents data={talents}/>
+        <ListOfTalents 
+          data={talents}
+          setPage={this.props.setPage} 
+          fetchTalents={this.props.fetchTalents} 
+        />
       </div>
     )
   }
@@ -29,12 +36,15 @@ class MainContentTalents extends Component {
 const mapStateToProps = store => {
   return {
     talents: store.talents.talents,
+    filters: store.filterTalents,
   }
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
     fetchTalents,
+    setPage,
+    clearCountPage,
   },
   dispatch
 );

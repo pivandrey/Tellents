@@ -4,6 +4,12 @@ import Talent from './Talent'
 import './style/listOfTalentsStyle.css'
 
 class ListOfTalents extends Component {
+
+  handleClickBtn = () => {
+    this.props.setPage();
+    this.props.fetchTalents();
+  }
+
   render() {
     const data = this.props.data
     return(
@@ -17,7 +23,7 @@ class ListOfTalents extends Component {
             />
           ))
         }
-        <button className="show-more">Load more</button>
+        <button className="show-more" onClick={this.handleClickBtn} >Load more</button>
       </div>
     )
   }
