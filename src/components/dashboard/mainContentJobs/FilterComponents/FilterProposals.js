@@ -22,35 +22,35 @@ class FilterProposals extends Component {
             name="prop" 
             value="i0_5" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("i0_5")}
+            defaultChecked={this.setCheckForInput("i0_5")}
           />0 - 5</label>
           <label><input 
             type="radio" 
             name="prop" 
             value="i5_10" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("i5_10")}
+            defaultChecked={this.setCheckForInput("i5_10")}
           />5 - 10</label><br />
           <label><input 
             type="radio" 
             name="prop" 
             value="i10_20" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("i10_20")}
+            defaultChecked={this.setCheckForInput("i10_20")}
           />10 - 20</label>
           <label><input 
             type="radio" 
             name="prop" 
             value="m_20" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("m_20")}
+            defaultChecked={this.setCheckForInput("m_20")}
           />> 20</label><br />
           <label><input 
             type="radio" 
             name="prop" 
             value="undefined" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("undefined")}
+            defaultChecked={this.setCheckForInput("undefined")}
           />None</label>
         </div>
       </div>

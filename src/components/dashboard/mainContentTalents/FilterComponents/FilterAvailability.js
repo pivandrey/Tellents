@@ -22,28 +22,28 @@ class FilterAvailability extends Component {
             name="avl" 
             value="per_week_up_to_20" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("per_week_up_to_20")}
+            defaultChecked={this.setCheckForInput("per_week_up_to_20")}
           />&lt; 20h</label>
           <label><input 
             type="checkbox" 
             name="avl" 
             value="per_week_30" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("per_week_30")}
+            defaultChecked={this.setCheckForInput("per_week_30")}
           />30h</label><br />
           <label><input 
             type="checkbox" 
             name="avl" 
             value="per_week_more_than_30" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("per_week_more_than_30")}
+            defaultChecked={this.setCheckForInput("per_week_more_than_30")}
           />> 30h</label>
           <label><input 
             type="checkbox" 
             name="avl" 
             value="per_week_full_time" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("per_week_full_time")}
+            defaultChecked={this.setCheckForInput("per_week_full_time")}
           />Full Time</label>
         </div>
       </div>

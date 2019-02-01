@@ -54,7 +54,7 @@ class FormChooseSkillTestField extends Component {
                   <label key={"LABELpromoKey:" + promo}>
                     <Field 
                       key={"promoKey:" + promo}
-                      name="promo"                        /* переделать */
+                      name="promo"              
                       component="input"
                       type="radio"
                       value={promo}
@@ -74,13 +74,13 @@ class FormChooseSkillTestField extends Component {
           <div className="promo-modal-one promo-modal-two">
             {
               this.state.showPromoSub && this.state.currentPromoCategory &&
-              category.filter((category) => category.name == this.state.currentPromoCategory)[0]
+              category.filter((category) => category.name === this.state.currentPromoCategory)[0]
               .skill_categories.map((skill) => (
                 <div key={"DIVsubPromoKey:" + skill.id}>
                   <label key={"LABELsubPromoKey:" + skill.id}>
                     <Field
                       key={"subPromoKey:" + skill.id}
-                      name="subpromo"                        /* переделать */
+                      name="subpromo"          
                       type="checkbox"
                       component="input"
                       value={skill.id}
@@ -95,7 +95,7 @@ class FormChooseSkillTestField extends Component {
         <div className="all-promo-block">
           {
             this.state.currentPromoCategory ? 
-              data.filter((promo) => promo.title == this.state.currentPromoCategory).map((promo) => (
+              data.filter((promo) => promo.title === this.state.currentPromoCategory).map((promo) => (
                 <div key={"DIVfullPromoKey:" + promo.id}>
                   <Field
                     key={"fullPromoKey:" + promo.id}

@@ -22,14 +22,14 @@ class FilterPlaceOfWork extends Component {
             name="place" 
             value="online" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("online")}
+            defaultChecked={this.setCheckForInput("online")}
           />On-Line</label>
           <label><input 
             type="checkbox" 
             name="place" 
             value="onsite" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("onsite")}
+            defaultChecked={this.setCheckForInput("onsite")}
           />On-Site</label><br />
         </div>
       </div>

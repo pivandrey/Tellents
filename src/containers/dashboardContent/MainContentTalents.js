@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { createSelector } from "reselect";
 import PropTypes from 'prop-types';
 
 import FilterTalents from '../../components/dashboard/mainContentTalents/FilterTalents';

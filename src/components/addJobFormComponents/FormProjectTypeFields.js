@@ -24,7 +24,7 @@ class FormProjectTypeFields extends Component {
               name="time_type"
               component="input"
               type="radio"
-              value="long_term"        /* переделать */
+              value="long_term"  
             />
             Long term
           </label>
@@ -46,7 +46,7 @@ class FormProjectTypeFields extends Component {
               name="time_type"
               component="input"
               type="radio"
-              value="not_sure"    /* переделать */
+              value="not_sure"  
             />
             Not sure
           </label>

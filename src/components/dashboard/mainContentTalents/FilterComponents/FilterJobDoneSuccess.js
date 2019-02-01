@@ -22,28 +22,28 @@ class FilterJobDoneSuccess extends Component {
             name="ds" 
             value="i_100" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("i_100")}
+            defaultChecked={this.setCheckForInput("i_100")}
           />100%</label>
           <label><input 
             type="radio" 
             name="ds" 
             value="m_95" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("m_95")}
+            defaultChecked={this.setCheckForInput("m_95")}
           />> 95%</label><br />
           <label><input 
             type="radio" 
             name="ds" 
             value="i_85_95" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("i_85_95")}
+            defaultChecked={this.setCheckForInput("i_85_95")}
           />85-95%</label>
           <label><input 
             type="radio" 
             name="ds" 
             value="l_85" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("l_85")}
+            defaultChecked={this.setCheckForInput("l_85")}
           />&lt; 85%</label>
         </div>
       </div>

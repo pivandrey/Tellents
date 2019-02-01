@@ -5,12 +5,12 @@ import '../style/filterJobs.css';
 
 class FilterExperience extends Component {
 
-  setCheckForInput = (value) => {
+  defaultValue = (value) => {
     const filters = this.props.filter;
-      if (filters.indexOf(value) >= 0) {
-        return true;
-      } else return false
-  };
+    if (filters.indexOf(value) >= 0) {
+      return true;
+    }
+  }
 
   render() {
     return(
@@ -22,28 +22,28 @@ class FilterExperience extends Component {
             name="exp" 
             value="intern" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("intern")}
+            defaultChecked={this.defaultValue("intern")}
           />Intern</label>
           <label><input 
             type="checkbox" 
             name="exp" 
             value="junior" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("junior")}
+            defaultChecked={this.defaultValue("junior")}
           />Junior</label><br />
           <label><input 
             type="checkbox" 
             name="exp" 
             value="senior" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("senior")}
+            defaultChecked={this.defaultValue("senior")}
           />Senior</label>
           <label><input 
             type="checkbox" 
             name="exp" 
             value="expert" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("expert")}
+            defaultChecked={this.defaultValue("expert")}
           />Expert</label>
         </div>
       </div>

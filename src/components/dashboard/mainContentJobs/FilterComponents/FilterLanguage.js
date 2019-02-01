@@ -40,7 +40,7 @@ class FilterLanguage extends Component {
                 name="lang" 
                 value={language.name}
                 onClick={this.props.handleClick} 
-                checked={this.setCheckForInput(language.name)}
+                defaultChecked={this.setCheckForInput(language.name)}
               />{language.name}</label>
             ))
           }

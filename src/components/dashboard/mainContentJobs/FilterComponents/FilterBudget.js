@@ -42,35 +42,35 @@ class FilterBudget extends Component {
             name="bud" 
             value="i0_100" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("i0_100")}
+            defaultChecked={this.setCheckForInput("i0_100")}
           />$0 - $100</label>
           <label><input 
             type="radio" 
             name="bud" 
             value="i100_300" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("i100_300")}
+            defaultChecked={this.setCheckForInput("i100_300")}
           />$100 - $300</label>
           <label><input 
             type="radio" 
             name="bud" 
             value="i300_1000" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("i300_1000")}
+            defaultChecked={this.setCheckForInput("i300_1000")}
           />$300 - $1000</label>
           <label><input 
             type="radio" 
             name="bud" 
             value="more_1000" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("more_1000")}
+            defaultChecked={this.setCheckForInput("more_1000")}
           />>$1000</label>
           <label><input 
             type="radio" 
             name="bud" 
             value="undefined" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("undefined")}
+            defaultChecked={this.setCheckForInput("undefined")}
           />Not defined (Empty)</label>
         </div>}
       </div>

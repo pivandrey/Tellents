@@ -35,7 +35,7 @@ class FormTalentCommitment extends Component {
               name="commitment"
               component="input"
               type="radio"
-              value="per_week_30"         /* переделать */
+              value="per_week_30"    
             />
             Up to 30 hrs per week
           </label>
@@ -46,7 +46,7 @@ class FormTalentCommitment extends Component {
               name="commitment"
               component="input"
               type="radio"
-              value="more_per_week_30"    /* переделать */
+              value="more_per_week_30" 
             />
             More than 30 hrs per week
           </label>

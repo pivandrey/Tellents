@@ -39,14 +39,14 @@ class FilterPayment extends Component {
             name="payment" 
             value="fixed_price" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("fixed_price")}
+            defaultChecked={this.setCheckForInput("fixed_price")}
           />Fixed Price</label>
           <label><input 
             type="checkbox" 
             name="payment" 
             value="hourly" 
             onClick={this.props.handleClick} 
-            checked={this.setCheckForInput("hourly")}
+            defaultChecked={this.setCheckForInput("hourly")}
           />Hourly</label>
         </div>
         <Form 

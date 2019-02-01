@@ -40,7 +40,7 @@ class FilterLocation extends Component {
                 name="lang" 
                 value={country.name}
                 onClick={this.props.handleClick} 
-                checked={this.setCheckForInput(country.name)}
+                defaultChecked={this.setCheckForInput(country.name)}
               />{country.name}</label>
             ))
           }

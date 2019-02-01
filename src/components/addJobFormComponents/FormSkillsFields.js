@@ -7,7 +7,7 @@ class FormSkillsFields extends Component {
 
   state = {
     showSkills: false,
-    categoryId: '',
+    categoryId: null,
   }
 
   handleClickCategory = (e) => {
@@ -46,12 +46,12 @@ class FormSkillsFields extends Component {
         {
           this.state.showSkills &&  this.state.categoryId ? 
           <h3 className="skills-block-title">{data.filter((category) => 
-            (category.id == this.state.categoryId))[0].name}</h3> : <span></span>
+            (Number(category.id) === Number(this.state.categoryId)))[0].name}</h3> : <span></span>
         }
         <div className="skills-block-inputs-sub">
           {
             this.state.showSkills && this.state.categoryId ? data.filter((category) => 
-            (category.id == this.state.categoryId))[0].skill_categories.map((skill) => (
+            (Number(category.id) === Number(this.state.categoryId)))[0].skill_categories.map((skill) => (
               <div key={"DIVcategory:" + skill.category_id + "skill:" + skill.id}>
                 <label key={"LABELcategory:" + skill.category_id + "skill:" + skill.id}>
                   <Field 

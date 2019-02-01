@@ -30,14 +30,14 @@ class FilterJobs extends Component {
     const name = e.target.name;
     this.changeFilter({ [name]: value });
 
-    /* const filters = this.props.filter;
+     const filters = this.props.filter;
     if (e.target.type === "radio") {
       for (let filter in filters) {
         if (filter === e.target.name && filters[filter] === e.target.value) {
-          
+          e.target.checked = false;
         }
       }
-    }; */
+    }; 
   };
 
   handleClickSubmit = (values) => {

@@ -82,8 +82,8 @@ const mapStateToProps = store => {
     firstName: store.authUser.firstName,
     lastName: store.authUser.lastName,
     addJobModalFlag: store.addJobModal.showModalAddJob,
-    jobsCount: store.jobs.countJobs,
-    talentsCount: store.talents.countTalents,
+    jobsCount: Number(store.jobs.countJobs),
+    talentsCount: Number(store.talents.countTalents),
   };
 };
 
