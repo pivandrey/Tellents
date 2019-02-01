@@ -5,6 +5,7 @@ const initialState = {
   showModalAddJob: false,
   categories: [],
   promotions: [],
+  jobPostedSuccess: '',
 };
 
 const addJobReducer = handleActions(
@@ -19,6 +20,10 @@ const addJobReducer = handleActions(
       categories: action.payload.categories,
       promotions: action.payload.promotions,
     }),
+    [TYPES.POSTED_JOB_SUCCESS]: (state, action) => ({
+      ...state,
+      jobPostedSuccess: action.payload.meta.messages[0],
+    })
   },
   initialState
 );

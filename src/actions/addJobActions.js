@@ -21,3 +21,24 @@ export function showModalAddJobSuccess(values) {
     payload: values,
   }
 };
+
+export const postedJob = (values) => async (dispatch, getState) => {
+  try {
+    const state =  getState();
+    const user = state.authUser.user;
+    const dataForRequest = {...values, user}
+    console.log(dataForRequest);
+    const {data} = await http().post('/client_jobs', values);
+
+    dispatch(postedJobSuccess(data));
+  } catch (e) {
+    throw e
+  }
+}
+
+export function postedJobSuccess(value) {
+  return {
+    type: TYPES.POSTED_JOB_SUCCESS,
+    payload: value,
+  }
+}

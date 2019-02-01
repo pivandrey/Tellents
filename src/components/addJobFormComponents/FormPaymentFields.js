@@ -2,39 +2,66 @@ import React, { Component } from 'react';
 import { Field } from 'react-final-form';
 
 class FormPaymentFields extends Component {
+  
+  state = {
+    fixedPayment: false,
+  }
+
+  fixedPayment = (e) => {
+    if (e.currentTarget.checked) {
+      this.setState ({
+        fixedPayment: true,
+      })
+    }; 
+  };
+
+  hourlyPayment = (e) => {
+    if (e.currentTarget.checked) {
+      this.setState ({
+        fixedPayment: false,
+      })
+    };
+  };
 
   render() {
     return(
-      <div className="form-block">
+      <div className="form-block-payment-all">
         <div className="form-block-payment">
           <h2>Job Payment</h2>
-          <div>
+          <div className="form-payment">
             <label>
-              <input 
+              <Field 
+                component="input"
                 type="radio" 
-                name="type_payment" 
+                name="payment" 
                 value="fixed" 
+                onClick={this.fixedPayment}
               />
               Fixed price
             </label>
-            <label>
-              <input 
-                type="radio" 
-                name="type_payment" 
-                value="hourly" 
-              />
-              Hourly
-            </label>
-          </div>
-          <div>
-            <label>
-              <Field
-                name="hourly_price"
-                component="input"
-                type="text"
-              />
-              $ / hour
-            </label>
+            <div>
+              <label>
+                <Field 
+                  component="input"
+                  type="radio" 
+                  name="payment" 
+                  value="hourly" 
+                  onClick={this.hourlyPayment}
+                />
+                Hourly
+              </label>
+            
+              <label>
+                <Field
+                  name="hourly_price"
+                  component="input"
+                  type="text"
+                  disabled={this.state.fixedPayment}
+                  className="hourly-rate"
+                />
+                $ / hour
+              </label>
+            </div>
           </div>
         </div>
         <div>
@@ -45,6 +72,7 @@ class FormPaymentFields extends Component {
                 name="price"
                 component="input"
                 type="text"
+                className="hourly-rate"
               />
               $
             </label>

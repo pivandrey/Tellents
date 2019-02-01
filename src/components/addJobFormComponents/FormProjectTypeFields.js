@@ -5,7 +5,7 @@ class FormProjectTypeFields extends Component {
 
   render() {
     return(
-      <div className="form-block">
+      <div className="form-block form-block-flex">
         <h2>Project type</h2>
         <div>
           <label>

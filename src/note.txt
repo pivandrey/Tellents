@@ -51,3 +51,43 @@ time_type: "one_time"
 title: "12345name"
 updated_at: "2019-01-31T10:51:11.219Z"
 user: {id: 698, full_name: "Andrey Ivanov", first_name: "Andrey",…}
+
+
+TESTTTT
+
+bids: []
+commitment: "per_week_more_than_30"
+contract_general_notes: "get this job now"
+created_at: "2019-02-01T10:44:53.485Z"
+deleted_at: null
+description: "ne bey leghachego"
+hourly_price: null
+id: 705
+level: null
+payment: "fixed_price"
+period: 3
+period_type: "year"
+price: 3000
+promotion_description: "do u do this?"
+promotion_title: "sleep all day"
+status: 0
+time_type: "long_term"
+title: "rabota"
+updated_at: "2019-02-01T10:44:53.485Z"
+user: {id: 698, full_name: "Andrey Ivanov", first_name: "Andrey",…}
+
+//////////////////////////////////////////////////////////////////////////
+
+agree: "true"
+category: "7"
+commitment: "more_per_week_30"
+contract_general_notes: "get this job now"
+description: "ne bey leghachego"
+period: "3"
+period_type: ["year"]
+price: "3000"
+promotion_description: "do u do this?"
+promotion_title: "sleep all day"
+skill: (3) [1, 10, 59]
+time_type: "long_term"
+title: "rabota "

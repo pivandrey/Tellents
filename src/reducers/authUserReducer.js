@@ -5,6 +5,7 @@ const initialState = {
   firstName: 'John',
   lastName: 'Jackson',
   email: '',
+  user: '',
 };
 
 const authUserReducer = handleActions(
@@ -28,6 +29,7 @@ const authUserReducer = handleActions(
         firstName: action.payload.first_name,
         lastName: action.payload.last_name,
         email: action.payload.email,
+        user: action.payload,
       }
     }
   },

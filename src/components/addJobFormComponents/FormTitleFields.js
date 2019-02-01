@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Field } from 'react-final-form';
 
+import './formsStyle.css'
+
 class FormTitleFields extends Component {
 
   render() {
@@ -12,6 +14,7 @@ class FormTitleFields extends Component {
             component="input"
             type="text"
             placeholder="Job Title"
+            className="form-title-input"
           />
         </div>
         <div>
@@ -19,6 +22,7 @@ class FormTitleFields extends Component {
             name="description"
             component="textarea"
             placeholder="Job Decription"
+            className="form-title-textarea"
           />
         </div>
       </div>

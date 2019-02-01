@@ -14,24 +14,33 @@ import FormTalentLevelFields from '../components/addJobFormComponents/FormTalent
 import FormProjectTypeFields from '../components/addJobFormComponents/FormProjectTypeFields';
 import FormContractGeneralNotes from '../components/addJobFormComponents/FormContractGeneralNotes';
 
-import { closeModalAddJob } from '../actions/addJobActions'
+import { closeModalAddJob, postedJob } from '../actions/addJobActions'
 
 import './addJobModalStyle.css'
 
 class AddJobModal extends Component {
   onSubmit = (values) => {
-    console.log(values)
+    this.props.postedJob(values)
   }
   render() {
     return(
       <div className="modal-window">
         <div className='modal-header'>
+          <h1>Post a Job</h1>
           <button className="modal-exit" onClick={this.props.closeModalAddJob}>X</button>
         </div>
         <div className="modal-body">
-          <h1>Post a Job</h1>
+          
           <Form
             onSubmit={this.onSubmit}
+            validate={values => {
+              const errors ={};
+              if (!values.title) errors.title = "Required";
+              if (!values.description) errors.description = "Required";
+              if (!values.price) errors.price = "Required";
+              if (!values.agree) errors.agree = "Required";
+              return errors
+            }}
             render={({ handleSubmit, form, submitting, pristine, values }) => (
               <form onSubmit={handleSubmit}>
                 <FormTitleFields />
@@ -43,11 +52,25 @@ class AddJobModal extends Component {
                 />
                 <FormPaymentFields />
                 <FormTimeFields />
-                <FormTalentCommitment />
-                <FormTalentLevelFields />
-                <FormProjectTypeFields />
+                <div className="form-flex">
+                  <FormTalentCommitment />
+                  <FormTalentLevelFields />
+                  <FormProjectTypeFields />
+                </div>
                 <FormContractGeneralNotes />
-                <button type="submit">subnit</button>
+                <div className="finish-block">
+                  <h2>Finish</h2>
+                  <div>
+                    <label>
+                      <Field
+                        component="input"
+                        type="radio"
+                        name="agree"
+                        value="true"
+                      />I agree for the terms of use</label>
+                  </div>
+                  <button type="submit" className="all-form-submit">POST</button>
+                </div>
               </form>
             )}
           />
@@ -62,12 +85,14 @@ const mapStateToProps = store => {
     addJobModalFlag: store.addJobModal.showModalAddJob,
     categories: store.addJobModal.categories,
     promotions: store.addJobModal.promotions,
+    jobPostedSuccess: store.addJobModal.jobPostedSuccess,
   }
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
     closeModalAddJob,
+    postedJob
   },
   dispatch
 );

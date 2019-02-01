@@ -5,7 +5,7 @@ class FormTalentLevelFields extends Component {
 
   render() {
     return(
-      <div className="form-block">
+      <div className="form-block form-block-flex">
         <h2>Talent Level</h2>
         <div>
           <label>
@@ -17,7 +17,7 @@ class FormTalentLevelFields extends Component {
             />
             Intern
           </label>
-        </div>level
+        </div>
         <div>
           <label>
             <Field

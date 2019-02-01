@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Field } from 'react-final-form';
 
+import './formsStyle.css';
+
 class FormCreateSkillTestField extends Component {
 
   render() {
     return(
-      <div className="form-block">
-        <div>
+      <div className="form-block form-block-createskill">
+        <div className="form-create-check">
           <label>
             <Field 
               name="create_skill_flag"
@@ -22,14 +24,16 @@ class FormCreateSkillTestField extends Component {
             name="promotion_title"
             component="input"
             type="text"
-            placeholder="Job Title"
+            placeholder="Skill Test Title"
+            className="form-title-input"
           />
         </div>
         <div>
           <Field
             name="promotion_description"
             component="textarea"
-            placeholder="Job Decription"
+            placeholder="Skill Test Description"
+            className="form-title-textarea"
           />
         </div>
       </div>
