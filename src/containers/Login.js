@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import { Form, Field } from 'react-final-form'
+import { Form, Field } from 'react-final-form';
+import PropTypes from 'prop-types';
 
-import './auth.css'
+import './auth.css';
 
 class Login extends Component {
 
   onSubmit = (values) => {
-    this.props.loginUser(values)
-  }
+    this.props.loginUser(values);
+  };
 
   render() {
-    const { closeModal } = this.props
+    const { closeModal } = this.props;
     return(
       <div className="login-block">
         <h2>Login Into Your Account</h2>
@@ -48,7 +49,12 @@ class Login extends Component {
         <button onClick={closeModal} className="login-btn-close">X</button>
       </div>
     )
-  }
+  };
+};
+
+Login.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+  loginUser: PropTypes.func.isRequired,
 };
 
 export default Login;

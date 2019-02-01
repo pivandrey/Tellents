@@ -1,13 +1,13 @@
-import { combineReducers } from 'redux'
-import authModalReducer from './authModalReducer'
-import authUserReducer from './authUserReducer'
-import jobsCardsReducer from './jobsCardsReducer'
-import addJobReducer from './addJobReducer'
-import talentsCardsReducer from './talentsCardsReducer'
-import CountriesReducer from './CountriesReducer'
-import LanguagesReducer from './languagesReducer'
-import filterJobReducer from './filterJobReducer'
-import searchReducer from './searchReducer'
+import { combineReducers } from 'redux';
+import authModalReducer from './authModalReducer';
+import authUserReducer from './authUserReducer';
+import jobsCardsReducer from './jobsCardsReducer';
+import addJobReducer from './addJobReducer';
+import talentsCardsReducer from './talentsCardsReducer';
+import CountriesReducer from './CountriesReducer';
+import LanguagesReducer from './languagesReducer';
+import filterJobReducer from './filterJobReducer';
+import searchReducer from './searchReducer';
 import sortReducer from './sortReducer';
 import pageReducer from './pageReducer';
 import filterTalentsReducer from './filterTalentsReducer';
@@ -25,4 +25,4 @@ export const rootReducer = combineReducers ({
   sort: sortReducer,
   page: pageReducer,
   filterTalents: filterTalentsReducer,
-})
+});

@@ -1,17 +1,17 @@
 import axios from 'axios';
-import * as TYPES from './types'
+import * as TYPES from './types';
 
 function getCookie(name) {
   var matches = document.cookie.match(new RegExp(
     "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
   ));
   return matches ? decodeURIComponent(matches[1]) : undefined;
-}
+};
 
 function getAuth() {
-  const token = getCookie('authHeaders')
+  const token = getCookie('authHeaders');
   return JSON.parse(token);
-}
+};
 
 export const http = function() {
   const auth = getAuth();

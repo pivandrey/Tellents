@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
+import PropTypes from 'prop-types';
 
 import FilterExperience from '../mainContentJobs/FilterComponents/FilterExperience';
 import FilterJobDoneSuccess from './FilterComponents/FilterJobDoneSuccess';
@@ -15,9 +16,9 @@ import FilterPlaceOfWork from './FilterComponents/FilterPlaceOfWork';
 
 import { clearCountPage } from '../../../actions/pageActions';
 import { addFilter, setFilterFromHistory, addFilterFromForm } from '../../../actions/filterJobActions';
-import { fetchTalents } from '../../../actions/talentsCardsActions'
+import { fetchTalents } from '../../../actions/talentsCardsActions';
 
-import './style/filterTalents.css'
+import './style/filterTalents.css';
 
 class FilterTalents extends Component {
 
@@ -31,16 +32,16 @@ class FilterTalents extends Component {
       for (let filter in filters) {
         if (filter === e.target.name && filters[filter] === e.target.value) {
           e.target.checked = false
-        }
-      }
-    }
+        };
+      };
+    };
   };
 
   handleClickSubmit = (values) => {
     this.props.clearCountPage();
     this.props.addFilterFromForm(values);
     this.props.fetchTalents();
-  }
+  };
 
   changeFilter = (values) => {
     this.props.clearCountPage();
@@ -94,6 +95,12 @@ class FilterTalents extends Component {
       </div>
     )
   }
+}
+
+FilterTalents.propTypes = {
+  filter: PropTypes.object.isRequired,
+  languages: PropTypes.array.isRequired,
+  countries: PropTypes.array.isRequired,
 }
 
 const mapStateToProps = store => {

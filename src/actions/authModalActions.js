@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions';
-import * as TYPES from '../types'
+import * as TYPES from '../types';
 
 export const showModalRegistration = createAction(TYPES.SHOW_MODAL_REGISTRATION);
 export const closeModalRegistration = createAction(TYPES.CLOSE_MODAL_REGISTRATION);

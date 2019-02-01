@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
-import { Form, Field } from 'react-final-form'
+import React, { Component } from 'react';
+import { Form, Field } from 'react-final-form';
+import PropTypes from 'prop-types';
 
-import '../style/filterJobs.css'
+import '../style/filterJobs.css';
 
 class FilterPayment extends Component {
 
@@ -10,23 +11,23 @@ class FilterPayment extends Component {
       if (filters.indexOf(value) >= 0) {
         return true;
       }
-  }
+  };
 
   onSubmit = (values) => {
     this.props.handleClickSubmit(values)
-  }
+  };
 
   setDefaultValueToPaymentMin = () => {
     const filterPriceFrom = this.props.filterPriceFrom;
     if (filterPriceFrom) return filterPriceFrom
     else return 40
-  }
+  };
 
   setDefaultValueToPaymentMax = () => {
     const filterPriceTo = this.props.filterPriceTo;
     if (filterPriceTo) return filterPriceTo
     else return 1000
-  }
+  };
 
   render() {
     return(
@@ -79,7 +80,15 @@ class FilterPayment extends Component {
         />
       </div>
     )
-  }
-}
+  };
+};
+
+FilterPayment.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
+  filterPriceFrom: PropTypes.string.isRequired,
+  filterPriceTo: PropTypes.string.isRequired,
+  handleClickSubmit: PropTypes.func.isRequired,
+};
   
-export default FilterPayment
+export default FilterPayment;

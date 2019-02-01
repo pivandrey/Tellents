@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import '../style/filterJobs.css'
+import '../style/filterJobs.css';
 
 class FilterExperience extends Component {
 
@@ -8,8 +9,8 @@ class FilterExperience extends Component {
     const filters = this.props.filter;
       if (filters.indexOf(value) >= 0) {
         return true;
-      }
-  }
+      } else return false
+  };
 
   render() {
     return(
@@ -47,7 +48,12 @@ class FilterExperience extends Component {
         </div>
       </div>
     )
-  }
-}
+  };
+};
 
-export default FilterExperience
+FilterExperience.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
+};
+
+export default FilterExperience;

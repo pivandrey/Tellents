@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { createSelector } from "reselect";
+import PropTypes from 'prop-types';
 
-import FilterJobs from '../../components/dashboard/mainContentJobs/FilterJobs'
-import ListOfJobs from '../../components/dashboard/mainContentJobs/ListOfJobs'
+import FilterJobs from '../../components/dashboard/mainContentJobs/FilterJobs';
+import ListOfJobs from '../../components/dashboard/mainContentJobs/ListOfJobs';
 
-import { fetchJobs } from '../../actions/jobsCardsActions'
-import { setPage, clearCountPage } from '../../actions/pageActions'
+import { fetchJobs } from '../../actions/jobsCardsActions';
+import { setPage, clearCountPage } from '../../actions/pageActions';
 
 class MainContentJobs extends Component {
 
   componentDidMount() {
     this.props.clearCountPage();
-    this.props.fetchJobs()
-  }
+    this.props.fetchJobs();
+  };
 
   render() {
     const { jobs } = this.props;
@@ -28,8 +29,13 @@ class MainContentJobs extends Component {
         />
       </div>
     )
-  }
-}
+  };
+};
+
+MainContentJobs.propTypes = {
+  jobs: PropTypes.array.isRequired,
+  filter: PropTypes.object.isRequired,
+};
 
 const getJobs = state => state.jobs.jobs;
 const getFilters = state => state.filterJob;
@@ -38,13 +44,13 @@ const getJobsSelector = createSelector(
   [getJobs], (jobs) => {
     return jobs
   }
-)
+);
 
 const getFiltersSelector = createSelector(
   [getFilters], (filters) => {
     return filters
   }
-)
+);
 
 const mapStateToProps = state => {
   return {

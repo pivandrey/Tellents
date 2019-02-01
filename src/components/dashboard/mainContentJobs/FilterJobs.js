@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
+import PropTypes from 'prop-types';
 
 import FilterAvailability from './FilterComponents/FilterAvailability';
 import FilterBudget from './FilterComponents/FilterBudget';
@@ -29,21 +30,21 @@ class FilterJobs extends Component {
     const name = e.target.name;
     this.changeFilter({ [name]: value });
 
-    const filters = this.props.filter;
+    /* const filters = this.props.filter;
     if (e.target.type === "radio") {
       for (let filter in filters) {
         if (filter === e.target.name && filters[filter] === e.target.value) {
-          e.target.checked = false
+          
         }
       }
-    }
+    }; */
   };
 
   handleClickSubmit = (values) => {
     this.props.clearCountPage();
     this.props.addFilterFromForm(values);
     this.props.fetchJobs();
-  }
+  };
 
   changeFilter = (values) => {
     this.props.clearCountPage();
@@ -86,7 +87,13 @@ class FilterJobs extends Component {
         <FilterJobDelivery />
       </div>
     )
-  }
+  };
+};
+
+FilterJobs.propTypes = {
+  filter: PropTypes.object.isRequired,
+  languages: PropTypes.array.isRequired,
+  countries: PropTypes.array.isRequired,
 }
 
 const mapStateToProps = store => {

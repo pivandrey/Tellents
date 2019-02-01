@@ -1,9 +1,9 @@
 import { handleActions } from 'redux-actions';
-import * as TYPES from '../types'
+import * as TYPES from '../types';
 
 const initialState = {
   countries: [],
-}
+};
 
 const CountriesReducer = handleActions(
   {
@@ -14,6 +14,6 @@ const CountriesReducer = handleActions(
     }
   },
   initialState
-)
+);
 
-export default CountriesReducer
+export default CountriesReducer;

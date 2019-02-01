@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import Register from './Register';
 import Login from './Login';
@@ -31,18 +32,18 @@ class Auth extends Component {
 
   handleCloseModalLogin = () => {
     this.props.closeModalLogin();
-  }
+  };
 
   registrateUser = (values) => {
     this.props.register(values);
-  }
+  };
 
   loginUser = (values) => {
     this.props.loginUser(values);
-  }
+  };
 
   render() {
-    const { showLogin, showRegister } = this.props
+    const { showLogin, showRegister } = this.props;
     return(
       <div className="authorization-block">
         {!showRegister && !showLogin && <div>
@@ -68,6 +69,11 @@ class Auth extends Component {
       </div>
     )
   }
+};
+
+Auth.propTypes = {
+  showLogin: PropTypes.bool.isRequired,
+  showRegister: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = store => {

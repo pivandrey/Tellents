@@ -1,15 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import '../style/filterTalents.css'
+import '../style/filterTalents.css';
 
 class FilterSkillTestScore extends Component {
 
   setCheckForInput = (value) => {
     const filters = this.props.filter;
-      if (filters.indexOf(value) >= 0) {
-        return true;
-      }
-  }
+    if (filters.indexOf(value) >= 0) {
+      return true;
+    };
+  };
 
   render() {
     return(
@@ -47,7 +48,12 @@ class FilterSkillTestScore extends Component {
         </div>
       </div>
     )
-  }
-}
+  };
+};
+
+FilterSkillTestScore.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
+};
   
-export default FilterSkillTestScore
+export default FilterSkillTestScore;

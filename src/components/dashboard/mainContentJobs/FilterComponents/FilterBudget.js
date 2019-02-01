@@ -1,32 +1,33 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import '../style/filterJobs.css'
+import '../style/filterJobs.css';
 
 class FilterBudget extends Component {
 
   state = {
     showOptionalFilter: false,
-  }
+  };
 
   setCheckForInput = (value) => {
     const filters = this.props.filter;
       if (filters.indexOf(value) >= 0) {
         return true;
       }
-  }
+  };
 
   setValueForButton = () => {
     const filters = this.props.filter;
       if (filters) {
         return filters;
       } else return "Select budget"
-  }
+  };
 
   showOptionalFilter = () => {
     this.setState ({
       showOptionalFilter: !this.state.showOptionalFilter,
     })
-  }
+  };
 
   render() {
     return(
@@ -74,7 +75,12 @@ class FilterBudget extends Component {
         </div>}
       </div>
     )
-  }
-}
+  };
+};
+
+FilterBudget.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
+};
   
-export default FilterBudget
+export default FilterBudget;

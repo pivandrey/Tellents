@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
+
 import logo from '../../img/logo.png'
 
 import './dashboardStyle.css'
 
 
-class Header extends Component {
+class DashboardHeader extends Component {
   
   render() {
     const { fullName } = this.props;
@@ -24,4 +26,8 @@ class Header extends Component {
   }
 }
 
-export default Header;
+DashboardHeader.propTypes = {
+  fullName: PropTypes.func.isRequired,
+}
+
+export default DashboardHeader;

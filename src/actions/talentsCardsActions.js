@@ -1,6 +1,6 @@
 import * as TYPES from '../types';
-import { http } from '../client'
-import history from '../history'
+import { http } from '../client';
+import history from '../history';
 
 const queryString = require('query-string');
 
@@ -48,18 +48,18 @@ export const fetchTalents = () => async (dispatch, getState) => {
   } catch (error) {
     throw error;
   }
-}
+};
 
 export function fetchTalentsSuccess (values) {
   return {
     type: TYPES.GET_TALENTS,
     payload: values,
   }
-}
+};
 
 export function fetchTalentsMoreSuccess (values) {
   return {
     type: TYPES.GET_MORE_TALENTS,
     payload: values,
   }
-}
+};

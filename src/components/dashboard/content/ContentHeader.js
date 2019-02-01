@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { Form, Field } from 'react-final-form';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import './dashboardContentStyle.css'
+import './dashboardContentStyle.css';
 
 class ContentHeader extends Component {
 
   onSubmit = (values) => {
     this.props.clearCountPage();
-    this.props.setSearchRequest(values.search)
+    this.props.setSearchRequest(values.search);
     this.props.fetchCards();
-  }
+  };
 
   render() {
-    const fullName = this.props.fullName
+    const fullName = this.props.fullName;
     return(
       <div className="content-header-flex">
         <p className="content-header-text"><span>Hi {fullName()},</span><br />What are you looking for today?</p>
@@ -45,7 +46,14 @@ class ContentHeader extends Component {
         </div>
       </div>
     )
-  }
-}
+  };
+};
 
-export default ContentHeader
+ContentHeader.propTypes = {
+  fullName: PropTypes.func.isRequired,
+  setSearchRequest: PropTypes.func.isRequired,
+  fetchCards: PropTypes.func.isRequired,
+  clearCountPage: PropTypes.func.isRequired,
+};
+
+export default ContentHeader;

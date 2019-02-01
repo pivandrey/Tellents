@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import '../style/filterJobs.css'
+import '../style/filterJobs.css';
 
 class FilterPosted extends Component {
 
@@ -9,7 +10,7 @@ class FilterPosted extends Component {
       if (filters.indexOf(value) >= 0) {
         return true;
       }
-  }
+  };
 
   render() {
     return(
@@ -47,7 +48,12 @@ class FilterPosted extends Component {
         </div> 
       </div>
     )
-  }
+  };
+};
+
+FilterPosted.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
 }
   
-export default FilterPosted
+export default FilterPosted;

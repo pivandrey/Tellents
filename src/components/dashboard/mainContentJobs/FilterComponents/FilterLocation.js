@@ -1,25 +1,26 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import '../style/filterJobs.css'
+import '../style/filterJobs.css';
 
 class FilterLocation extends Component {
 
   state = {
     showOptionalFilter: false,
-  }
+  };
 
   setCheckForInput = (value) => {
     const filters = this.props.filter;
       if (filters.indexOf(value) >= 0) {
         return true;
       }
-  }
+  };
 
   showOptionalFilter = () => {
     this.setState ({
       showOptionalFilter: !this.state.showOptionalFilter,
     })
-  }
+  };
   
   render() {
     const countries = this.props.countries;
@@ -46,7 +47,13 @@ class FilterLocation extends Component {
         </div>}
       </div>
     )
-  }
-}
+  };
+};
+
+FilterLocation.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
+  countries: PropTypes.array.isRequired,
+};
   
-export default FilterLocation
+export default FilterLocation;

@@ -1,9 +1,9 @@
 import { handleActions } from 'redux-actions';
-import * as TYPES from '../types'
+import * as TYPES from '../types';
 
 const initialState = {
   languages: [],
-}
+};
 
 const LanguagesReducer = handleActions(
   {
@@ -14,6 +14,6 @@ const LanguagesReducer = handleActions(
     }
   },
   initialState
-)
+);
 
-export default LanguagesReducer
+export default LanguagesReducer;

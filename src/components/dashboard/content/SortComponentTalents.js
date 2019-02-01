@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class SortComponentTalents extends Component {
 
   state = {
     showSort: false,
-  }
+  };
 
   handleShowSort = () => {
     this.setState ({
@@ -50,7 +51,12 @@ class SortComponentTalents extends Component {
         <p>Result:{this.props.cardsCount()}</p>
       </div>
     )
-  }
-}
+  };
+};
 
-export default SortComponentTalents
+SortComponentTalents.propTypes = {
+  handleClickSort: PropTypes.func.isRequired,
+  cardsCount: PropTypes.func.isRequired,
+};
+
+export default SortComponentTalents;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Form, Field } from 'react-final-form'
+import { Form, Field } from 'react-final-form';
+import PropTypes from 'prop-types';
 
 import './auth.css'
 
@@ -64,7 +65,11 @@ class Register extends Component {
       </div>
     )
   }
-  
 };
+
+Register.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+  registrateUser: PropTypes.func.isRequired,
+}
 
 export default Register;

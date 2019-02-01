@@ -1,11 +1,11 @@
 import { handleActions } from 'redux-actions';
-import * as TYPES from '../types'
+import * as TYPES from '../types';
 
 const initialState = {
   firstName: 'John',
   lastName: 'Jackson',
   email: '',
-}
+};
 
 const authUserReducer = handleActions(
   {
@@ -32,5 +32,6 @@ const authUserReducer = handleActions(
     }
   },
   initialState
-)
-export default authUserReducer
+);
+
+export default authUserReducer;

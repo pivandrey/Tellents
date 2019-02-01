@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import MainContentJobs from '../../../containers/dashboardContent/MainContentJobs'
-import MainContentTalents from '../../../containers/dashboardContent/MainContentTalents'
-import JobBoxesHeader from './JobBoxesHeader'
-import ContentHeader from './ContentHeader'
+import MainContentJobs from '../../../containers/dashboardContent/MainContentJobs';
+import MainContentTalents from '../../../containers/dashboardContent/MainContentTalents';
+import JobBoxesHeader from './JobBoxesHeader';
+import ContentHeader from './ContentHeader';
 import AddJobModal from '../../../containers/AddJobModal';
 
-import './dashboardContentStyle.css'
+import './dashboardContentStyle.css';
 
 class Content extends Component {
 
@@ -43,7 +44,19 @@ class Content extends Component {
         </div>
       </div>
     )
-  }
-}
+  };
+};
 
-export default Content
+Content.propTypes = {
+  fullName: PropTypes.func.isRequired,
+  jobModalFlag: PropTypes.bool.isRequired,
+  showModal: PropTypes.func.isRequired,
+  setSearchRequest: PropTypes.func.isRequired,
+  fetchCards: PropTypes.func.isRequired,
+  sort: PropTypes.func.isRequired,
+  clearCountPage: PropTypes.func.isRequired,
+  cardsCount: PropTypes.func.isRequired,
+  defineJobsOrTalents: PropTypes.func.isRequired,
+};
+
+export default Content;

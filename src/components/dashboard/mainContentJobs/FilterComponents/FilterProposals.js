@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import '../style/filterJobs.css'
+import '../style/filterJobs.css';
 
 class FilterProposals extends Component {
 
@@ -9,7 +10,7 @@ class FilterProposals extends Component {
       if (filters.indexOf(value) >= 0) {
         return true;
       }
-  }
+  };
 
   render() {
     return(
@@ -54,7 +55,12 @@ class FilterProposals extends Component {
         </div>
       </div>
     )
-  }
-}
+  };
+};
+
+FilterProposals.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
+};
   
-export default FilterProposals
+export default FilterProposals;

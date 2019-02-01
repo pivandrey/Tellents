@@ -1,9 +1,9 @@
 import { handleActions } from 'redux-actions';
-import * as TYPES from '../types'
+import * as TYPES from '../types';
 
 const initialState = {
   search: '',
-}
+};
 
 const searchReducer = handleActions(
   {
@@ -14,6 +14,6 @@ const searchReducer = handleActions(
     }
   },
   initialState
-)
+);
 
-export default searchReducer
+export default searchReducer;

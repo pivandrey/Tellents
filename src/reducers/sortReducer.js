@@ -1,9 +1,9 @@
 import { handleActions } from 'redux-actions';
-import * as TYPES from '../types'
+import * as TYPES from '../types';
 
 const initialState = {
   sort: '',
-}
+};
 
 const sortReducer = handleActions(
   {
@@ -14,6 +14,6 @@ const sortReducer = handleActions(
     }
   },
   initialState
-)
+);
 
-export default sortReducer
+export default sortReducer;

@@ -1,10 +1,10 @@
 import { handleActions } from 'redux-actions';
-import * as TYPES from '../types'
+import * as TYPES from '../types';
 
 const initialState = {
   showModalRegistration: false,
   showModalLogin: false,
-}
+};
 
  const authModalReducer = handleActions(
   {
@@ -25,6 +25,6 @@ const initialState = {
     })
   },
   initialState
-)
+);
 
-export default authModalReducer
+export default authModalReducer;

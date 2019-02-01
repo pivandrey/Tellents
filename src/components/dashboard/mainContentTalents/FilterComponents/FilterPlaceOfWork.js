@@ -1,15 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import '../style/filterTalents.css'
+import '../style/filterTalents.css';
 
 class FilterPlaceOfWork extends Component {
 
   setCheckForInput = (value) => {
     const filters = this.props.filter;
-      if (filters.indexOf(value) >= 0) {
-        return true;
-      }
-  }
+    if (filters.indexOf(value) >= 0) {
+      return true;
+    };
+  };
 
   render() {
     return(
@@ -33,7 +34,12 @@ class FilterPlaceOfWork extends Component {
         </div>
       </div>
     )
-  }
-}
+  };
+};
+
+FilterPlaceOfWork.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
+};
   
-export default FilterPlaceOfWork
+export default FilterPlaceOfWork;

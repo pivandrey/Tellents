@@ -1,12 +1,13 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
-import './style/talentStyle.css'
-import '../../../fonts/font.css'
+import './style/talentStyle.css';
+import '../../../fonts/font.css';
 
 class Talent extends Component {
 
   render() {
-    const data = this.props.data
+    const data = this.props.data;
     return(
       <div className="talent-box">
         <div className="talent-box-header">
@@ -68,7 +69,12 @@ class Talent extends Component {
         </div>
       </div>
     )
-  }
-}
+  };
+};
 
-export default Talent
+Talent.propTypes = {
+  id: PropTypes.number.isRequired,
+  data: PropTypes.object.isRequired,
+};
+
+export default Talent;

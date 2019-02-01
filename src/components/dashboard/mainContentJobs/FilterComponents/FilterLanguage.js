@@ -1,25 +1,26 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import '../style/filterJobs.css'
+import '../style/filterJobs.css';
 
 class FilterLanguage extends Component {
 
   state = {
     showOptionalFilter: false,
-  }
+  };
 
   setCheckForInput = (value) => {
     const filters = this.props.filter;
       if (filters.indexOf(value) >= 0) {
         return true;
       }
-  }
+  };
 
   showOptionalFilter = () => {
     this.setState ({
       showOptionalFilter: !this.state.showOptionalFilter,
     })
-  }
+  };
 
   render() {
     const languages = this.props.languages;
@@ -46,7 +47,13 @@ class FilterLanguage extends Component {
         </div>}
       </div>
     )
-  }
-}
+  };
+};
+
+FilterLanguage.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
+  languages: PropTypes.array.isRequired,
+};
   
-export default FilterLanguage
+export default FilterLanguage;

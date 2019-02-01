@@ -1,19 +1,20 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
-import './style/jobStyle.css'
-import '../../../fonts/font.css'
+import './style/jobStyle.css';
+import '../../../fonts/font.css';
 
 class Job extends Component {
 
   getDate = () => {
-    const data = this.props.data
+    const data = this.props.data;
     const x = Date.parse(new Date());
-    const date = Math.round((x - Date.parse(data.created_at)) / 86400000)
+    const date = Math.round((x - Date.parse(data.created_at)) / 86400000);
     return date
-  }
+  };
 
   render() {
-    const data = this.props.data
+    const data = this.props.data;
     return(
       <div className="job-box">
         <div className="job-box-header flexbox">
@@ -74,7 +75,12 @@ class Job extends Component {
         </div>
       </div>
     )
-  }
+  };
+};
+
+Job.propTypes = {
+  id: PropTypes.number.isRequired,
+  data: PropTypes.object.isRequired,
 }
 
-export default Job
+export default Job;

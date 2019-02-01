@@ -2,21 +2,22 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { createSelector } from "reselect";
+import PropTypes from 'prop-types';
 
-import FilterTalents from '../../components/dashboard/mainContentTalents/FilterTalents'
-import ListOfTalents from '../../components/dashboard/mainContentTalents/ListOfTalents'
+import FilterTalents from '../../components/dashboard/mainContentTalents/FilterTalents';
+import ListOfTalents from '../../components/dashboard/mainContentTalents/ListOfTalents';
 
-import { fetchTalents } from '../../actions/talentsCardsActions'
-import { setPage, clearCountPage } from '../../actions/pageActions'
+import { fetchTalents } from '../../actions/talentsCardsActions';
+import { setPage, clearCountPage } from '../../actions/pageActions';
 
-import './mainContent.css'
+import './mainContent.css';
 
 class MainContentTalents extends Component {
 
   componentDidMount() {
     this.props.clearCountPage();
     this.props.fetchTalents()
-  }
+  };
 
   render() {
     const { talents } = this.props;
@@ -30,7 +31,12 @@ class MainContentTalents extends Component {
         />
       </div>
     )
-  }
+  };
+};
+
+MainContentTalents.propTypes = {
+  talents: PropTypes.array.isRequired,
+  filters: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = store => {
@@ -52,4 +58,4 @@ const mapDispatchToProps = dispatch => bindActionCreators(
 export default connect(
   mapStateToProps,
   mapDispatchToProps, 
-)(MainContentTalents)
+)(MainContentTalents);

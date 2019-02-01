@@ -1,5 +1,5 @@
 import * as TYPES from '../types';
-import { http } from '../client'
+import { http } from '../client';
 
 export const fetchCountries = () => async (dispatch, getState) => {
   try {
@@ -9,11 +9,11 @@ export const fetchCountries = () => async (dispatch, getState) => {
   } catch (error) {
     throw error;
   }
-}
+};
 
 export function fetchCountriesSuccess (values) {
   return {
     type: TYPES.GET_COUNTRIES,
     payload: values,
   }
-}
+};

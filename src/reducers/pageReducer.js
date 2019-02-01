@@ -1,9 +1,9 @@
 import { handleActions } from 'redux-actions';
-import * as TYPES from '../types'
+import * as TYPES from '../types';
 
 const initialState = {
   page: 1,
-}
+};
 
 const pageReducer = handleActions(
   {
@@ -19,6 +19,6 @@ const pageReducer = handleActions(
     }
   },
   initialState
-)
+);
 
-export default pageReducer
+export default pageReducer;

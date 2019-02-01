@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions';
-import * as TYPES from '../types'
+import * as TYPES from '../types';
 
 const initialState = {
   exp: '',
@@ -10,7 +10,7 @@ const initialState = {
   lang: '',
   avl: '',
   place: '',
-}
+};
 
  const filterTalentsReducer = handleActions(
   {
@@ -55,6 +55,6 @@ const initialState = {
     }
   },
   initialState
- )
+ );
 
- export default filterTalentsReducer
+ export default filterTalentsReducer;

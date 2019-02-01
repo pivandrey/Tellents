@@ -1,10 +1,10 @@
 import { handleActions } from 'redux-actions';
-import * as TYPES from '../types'
+import * as TYPES from '../types';
 
 const initialState = {
   talents: [],
   countTalents: '',
-}
+};
 
  const jobsTalentsReducer = handleActions(
   {
@@ -19,6 +19,6 @@ const initialState = {
     })
   },
   initialState
-)
+);
 
-export default jobsTalentsReducer
+export default jobsTalentsReducer;

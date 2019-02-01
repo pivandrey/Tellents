@@ -1,11 +1,11 @@
-import { handleActions } from 'redux-actions'
-import * as TYPES from '../types'
+import { handleActions } from 'redux-actions';
+import * as TYPES from '../types';
 
 const initialState = {
   showModalAddJob: false,
   categories: [],
   promotions: [],
-}
+};
 
 const addJobReducer = handleActions(
   {
@@ -21,6 +21,6 @@ const addJobReducer = handleActions(
     }),
   },
   initialState
-)
+);
 
-export default addJobReducer
+export default addJobReducer;

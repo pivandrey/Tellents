@@ -19,6 +19,9 @@ import { closeModalAddJob } from '../actions/addJobActions'
 import './addJobModalStyle.css'
 
 class AddJobModal extends Component {
+  onSubmit = (values) => {
+    console.log(values)
+  }
   render() {
     return(
       <div className="modal-window">
@@ -32,15 +35,19 @@ class AddJobModal extends Component {
             render={({ handleSubmit, form, submitting, pristine, values }) => (
               <form onSubmit={handleSubmit}>
                 <FormTitleFields />
-                <FormSkillsFields />
+                <FormSkillsFields categories={this.props.categories}/>
                 <FormCreateSkillTestField />
-                <FormChooseSkillTestField />
+                <FormChooseSkillTestField
+                  categories={this.props.categories}
+                  promotions={this.props.promotions}
+                />
                 <FormPaymentFields />
                 <FormTimeFields />
                 <FormTalentCommitment />
                 <FormTalentLevelFields />
                 <FormProjectTypeFields />
                 <FormContractGeneralNotes />
+                <button type="submit">subnit</button>
               </form>
             )}
           />
