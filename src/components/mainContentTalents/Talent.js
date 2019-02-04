@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 import './style/talentStyle.css';
-import '../../../fonts/font.css';
+import '../../fonts/font.css';
 
 class Talent extends Component {
 

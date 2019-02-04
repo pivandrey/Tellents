@@ -16,7 +16,7 @@ const initialState = {
 
  const filterJobReducer = handleActions(
   {
-    [TYPES.ADD_FILTER]: (state, action) => {
+    [TYPES.ADD_JOB_FILTER]: (state, action) => {
       let value = '';
       const newFilters = action.payload;
       for (let key in newFilters) {

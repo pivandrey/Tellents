@@ -35,10 +35,18 @@ class AddJobModal extends Component {
             onSubmit={this.onSubmit}
             validate={values => {
               const errors ={};
-              if (!values.title) errors.title = "Required Title";
-              if (!values.description) errors.description = "Required Description";
-              if (!values.price) errors.price = "Required Price";
-              if (!values.agree) errors.agree = "Required Agree";
+              if (!values.title) {
+                errors.title = "Required Title";
+              }
+              if (!values.description) {
+                errors.description = "Required Description";
+              }
+              if (!values.price) {
+                errors.price = "Required Price";
+              }
+              if (!values.agree) {
+                errors.agree = "Required Agree";
+              }
               return errors
             }}
             render={({ handleSubmit, form, submitting, pristine, values }) => (

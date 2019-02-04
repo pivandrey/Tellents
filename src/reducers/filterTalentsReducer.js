@@ -14,7 +14,7 @@ const initialState = {
 
  const filterTalentsReducer = handleActions(
   {
-    [TYPES.ADD_FILTER]: (state, action) => {
+    [TYPES.ADD_TALENTS_FILTER]: (state, action) => {
       let value = '';
       const newFilters = action.payload;
       for (let key in newFilters) {

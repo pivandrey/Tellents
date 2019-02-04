@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import DashboardHeader from '../components/dashboard/DashboardHeader'
-import Content from '../components/dashboard/content/Content'
+import DashboardHeader from '../components/DashboardHeader'
+import Content from '../components/Content'
 
 import { showModalAddJob } from '../actions/addJobActions'
 import { fetchCountries } from '../actions/countriesActions'
@@ -16,7 +16,7 @@ import { fetchTalents } from '../actions/talentsCardsActions'
 import { sort } from '../actions/sortActions'
 import { clearCountPage } from '../actions/pageActions'
 
-import '../components/dashboard/dashboardStyle.css'
+import '../components/dashboardStyle.css'
 
 class Dashboard extends Component {
 
@@ -33,18 +33,27 @@ class Dashboard extends Component {
 
   defineJobsOrTalents = () => {
     let path = this.props.history.location.pathname;
-    if (path.indexOf("job") > 0) return true;
-    else return false;
+    if (path.indexOf("job") > 0) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   countOfCards = () => {
-    if (this.defineJobsOrTalents()) return this.props.jobsCount;
-    else return this.props.talentsCount;
+    if (this.defineJobsOrTalents()) {
+      return this.props.jobsCount;
+    } else {
+      return this.props.talentsCount;
+    }
   };
 
   fetchCards = () => {
-    if (this.defineJobsOrTalents()) return this.props.fetchJobs();
-    else return this.props.fetchTalents();
+    if (this.defineJobsOrTalents()) {
+      return this.props.fetchJobs();
+    } else {
+      return this.props.fetchTalents();
+    }
   };
 
   render() {

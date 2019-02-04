@@ -5,22 +5,22 @@ import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
 import PropTypes from 'prop-types';
 
-import FilterAvailability from './FilterComponents/FilterAvailability';
-import FilterBudget from './FilterComponents/FilterBudget';
-import FilterExperience from './FilterComponents/FilterExperience';
-import FilterJobDelivery from './FilterComponents/FilterJobDelivery';
-import FilterLanguage from './FilterComponents/FilterLanguage';
-import FilterLocation from './FilterComponents/FilterLocation';
-import FilterPayment from './FilterComponents/FilterPayment';
-import FilterPlace from './FilterComponents/FilterPlace';
-import FilterPosted from './FilterComponents/FilterPosted';
-import FilterProposals from './FilterComponents/FilterProposals';
+import FilterAvailability from '../components/mainContentJobs/FilterJobComponents/FilterAvailability';
+import FilterBudget from '../components/mainContentJobs/FilterJobComponents/FilterBudget';
+import FilterExperience from '../components/mainContentJobs/FilterJobComponents/FilterExperience';
+import FilterJobDelivery from '../components/mainContentJobs/FilterJobComponents/FilterJobDelivery';
+import FilterLanguage from '../components/mainContentJobs/FilterJobComponents/FilterLanguage';
+import FilterLocation from '../components/mainContentJobs/FilterJobComponents/FilterLocation';
+import FilterPayment from '../components/mainContentJobs/FilterJobComponents/FilterPayment';
+import FilterPlace from '../components/mainContentJobs/FilterJobComponents/FilterPlace';
+import FilterPosted from '../components/mainContentJobs/FilterJobComponents/FilterPosted';
+import FilterProposals from '../components/mainContentJobs/FilterJobComponents/FilterProposals';
 
-import { fetchJobs } from '../../../actions/jobsCardsActions';
-import { addFilter, setFilterFromHistory, addFilterFromForm } from '../../../actions/filterJobActions';
-import { clearCountPage } from '../../../actions/pageActions';
+import { fetchJobs } from '../actions/jobsCardsActions';
+import { addJobFilter, setFilterFromHistory, addFilterFromForm } from '../actions/filterJobActions';
+import { clearCountPage } from '../actions/pageActions';
 
-import './style/filterJobs.css';
+import '../components/mainContentJobs/style/filterJobs.css';
 
 
 class FilterJobs extends Component {
@@ -48,7 +48,7 @@ class FilterJobs extends Component {
 
   changeFilter = (values) => {
     this.props.clearCountPage();
-    this.props.addFilter(values);
+    this.props.addJobFilter(values);
     this.props.fetchJobs();
   };
 
@@ -107,7 +107,7 @@ const mapStateToProps = store => {
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
     fetchJobs,
-    addFilter,
+    addJobFilter,
     setFilterFromHistory,
     addFilterFromForm,
     clearCountPage,

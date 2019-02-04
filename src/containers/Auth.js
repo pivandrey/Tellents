@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import Register from './Register';
-import Login from './Login';
+import Register from '../components/Register';
+import Login from '../components/Login';
 
 import { register, loginUser } from '../actions/authUserActions';
 import { 

@@ -31,8 +31,11 @@ class FormChooseSkillTestField extends Component {
 
   setNameForButton = () => {
     const category = this.state.currentPromoCategory;
-    if (category) return category
-    else return "Category"
+    if (category) {
+      return category
+    } else {
+      return "Category"
+    }
   }
 
   render() {

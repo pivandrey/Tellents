@@ -23,8 +23,12 @@ export const fetchTalents = () => async (dispatch, getState) => {
         }
       };
 
-      if(searchRequest) requestOption['q'] = searchRequest;
-      if(sort) requestOption['sort'] = sort;
+      if(searchRequest) {
+        requestOption['q'] = searchRequest;
+      }
+      if(sort) {
+        requestOption['sort'] = sort;
+      }
 
       urlAPI += queryString.stringify({
         page: pageForUrl,
@@ -42,8 +46,11 @@ export const fetchTalents = () => async (dispatch, getState) => {
 
     const {data} = await http().get(urlAPI, filterState);
 
-    if(pageForUrl > 1) dispatch(fetchTalentsMoreSuccess(data));
-    else dispatch(fetchTalentsSuccess(data));
+    if(pageForUrl > 1) {
+      dispatch(fetchTalentsMoreSuccess(data));
+    } else {
+      dispatch(fetchTalentsSuccess(data));
+    }
     
   } catch (error) {
     throw error;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, Field } from 'react-final-form';
 import PropTypes from 'prop-types';
 
-import './auth.css'
+import '../containers/auth.css'
 
 class Register extends Component {
 

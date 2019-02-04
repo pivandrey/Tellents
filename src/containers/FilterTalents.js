@@ -5,20 +5,21 @@ import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
 import PropTypes from 'prop-types';
 
-import FilterExperience from '../mainContentJobs/FilterComponents/FilterExperience';
-import FilterJobDoneSuccess from './FilterComponents/FilterJobDoneSuccess';
-import FilterSkillTestScore from './FilterComponents/FilterSkillTestScore';
-import FilterFreelancerRate from './FilterComponents/FilterFreelancerRate';
-import FilterLocation from '../mainContentJobs/FilterComponents/FilterLocation';
-import FilterLanguage from '../mainContentJobs/FilterComponents/FilterLanguage';
-import FilterAvailability from './FilterComponents/FilterAvailability';
-import FilterPlaceOfWork from './FilterComponents/FilterPlaceOfWork';
+import FilterExperience from '../components/mainContentTalents/FilterTalentsComponents/FilterExperience';
+import FilterJobDoneSuccess from '../components/mainContentTalents/FilterTalentsComponents/FilterJobDoneSuccess';
+import FilterSkillTestScore from '../components/mainContentTalents/FilterTalentsComponents/FilterSkillTestScore';
+import FilterFreelancerRate from '../components/mainContentTalents/FilterTalentsComponents/FilterFreelancerRate';
+import FilterLocation from '../components/mainContentTalents/FilterTalentsComponents/FilterLocation';
+import FilterLanguage from '../components/mainContentTalents/FilterTalentsComponents/FilterLanguage';
+import FilterAvailability from '../components/mainContentTalents/FilterTalentsComponents/FilterAvailability';
+import FilterPlaceOfWork from '../components/mainContentTalents/FilterTalentsComponents/FilterPlaceOfWork';
 
-import { clearCountPage } from '../../../actions/pageActions';
-import { addFilter, setFilterFromHistory, addFilterFromForm } from '../../../actions/filterJobActions';
-import { fetchTalents } from '../../../actions/talentsCardsActions';
+import { clearCountPage } from '../actions/pageActions';
+import { setFilterFromHistory, addFilterFromForm } from '../actions/filterJobActions';
+import { addTalentsFilter } from '../actions/filterTalentsActions';
+import { fetchTalents } from '../actions/talentsCardsActions';
 
-import './style/filterTalents.css';
+import '../components/mainContentTalents/style/filterTalents.css';
 
 class FilterTalents extends Component {
 
@@ -45,7 +46,7 @@ class FilterTalents extends Component {
 
   changeFilter = (values) => {
     this.props.clearCountPage();
-    this.props.addFilter(values);
+    this.props.addTalentsFilter(values);
     this.props.fetchTalents();
   };
 
@@ -114,7 +115,7 @@ const mapStateToProps = store => {
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
     fetchTalents,
-    addFilter,
+    addTalentsFilter,
     setFilterFromHistory,
     addFilterFromForm,
     clearCountPage,

@@ -19,14 +19,20 @@ class FilterPayment extends Component {
 
   setDefaultValueToPaymentMin = () => {
     const filterPriceFrom = this.props.filterPriceFrom;
-    if (filterPriceFrom) return filterPriceFrom
-    else return 40
+    if (filterPriceFrom) {
+      return filterPriceFrom
+    } else {
+      return 40
+    }
   };
 
   setDefaultValueToPaymentMax = () => {
     const filterPriceTo = this.props.filterPriceTo;
-    if (filterPriceTo) return filterPriceTo
-    else return 1000
+    if (filterPriceTo) {
+      return filterPriceTo
+    } else {
+      return 1000
+    }
   };
 
   render() {

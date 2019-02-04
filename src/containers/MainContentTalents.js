@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import FilterTalents from '../../components/dashboard/mainContentTalents/FilterTalents';
-import ListOfTalents from '../../components/dashboard/mainContentTalents/ListOfTalents';
+import FilterTalents from './FilterTalents';
+import ListOfTalents from '../components/mainContentTalents/ListOfTalents';
 
-import { fetchTalents } from '../../actions/talentsCardsActions';
-import { setPage, clearCountPage } from '../../actions/pageActions';
+import { fetchTalents } from '../actions/talentsCardsActions';
+import { setPage, clearCountPage } from '../actions/pageActions';
 
 import './mainContent.css';
 

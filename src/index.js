@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 import history from './history';
 
-import App from './containers/App';
+import App from './components/App';
 
 render(
   <Provider store={store}>
