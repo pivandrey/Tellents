@@ -1,93 +1,19 @@
-https://floating-atoll-63112.herokuapp.com/api/v1/client_jobs
-POST
-
-category: {id: 7, name: "Translation", skill_categories: [{id: 58, name: "All Translation", selected: false},…]}
-commitment: "per_week_10"
-contract_general_notes: "it's my comments for job"
-description: "description job"
-hourly_price: 100
-level: "senior"
-payment: "hourly"
-period: 1
-period_type: "month"
-price: 1200
-promotion: {id: 69, title: "Translation", description: "Any skill test defined by the client",…}
-promotion_description: "Any skill test defined by the client"
-promotion_title: "Translation"
-skill_tags: []
-time_type: "short"
-title: "new job"
-
-
-meta: {messages: ["Job was successfully posted"]}
-
-при нажатии на кнопку создания идут 2 запроса:
-1. https://floating-atoll-63112.herokuapp.com/api/v1/profile/skills
-GET
-
-2. https://floating-atoll-63112.herokuapp.com/api/v1/profile/default_promotions
-GET
-
-
-
-job: {id: 703, title: "12345name", promotion_title: "new skill",…}
-bids: []
-commitment: "decide_later"
-contract_general_notes: "ENTER THE COMMENTS"
-created_at: "2019-01-31T10:51:11.219Z"
-deleted_at: null
-description: "12345descript"
-hourly_price: null
-id: 703
-level: "junior"
-payment: "fixed_price"
-period: 13
-period_type: "week"
-price: 10000
-promotion_description: "descript for new skill"
-promotion_title: "new skill"
-status: 0
-time_type: "one_time"
-title: "12345name"
-updated_at: "2019-01-31T10:51:11.219Z"
-user: {id: 698, full_name: "Andrey Ivanov", first_name: "Andrey",…}
-
-
-TESTTTT
-
-bids: []
-commitment: "per_week_more_than_30"
-contract_general_notes: "get this job now"
-created_at: "2019-02-01T10:44:53.485Z"
-deleted_at: null
-description: "ne bey leghachego"
-hourly_price: null
-id: 705
-level: null
-payment: "fixed_price"
-period: 3
-period_type: "year"
-price: 3000
-promotion_description: "do u do this?"
-promotion_title: "sleep all day"
-status: 0
-time_type: "long_term"
-title: "rabota"
-updated_at: "2019-02-01T10:44:53.485Z"
-user: {id: 698, full_name: "Andrey Ivanov", first_name: "Andrey",…}
-
-//////////////////////////////////////////////////////////////////////////
-
-agree: "true"
-category: "7"
-commitment: "more_per_week_30"
-contract_general_notes: "get this job now"
-description: "ne bey leghachego"
-period: "3"
-period_type: ["year"]
-price: "3000"
-promotion_description: "do u do this?"
-promotion_title: "sleep all day"
-skill: (3) [1, 10, 59]
-time_type: "long_term"
-title: "rabota "
+1. agree удалить
+2. category {id: 2, name: "It & networking", skill_categories: (перечисляются все)}
+3. commitment: "per_week_more_than_30" (ПЕРЕДЕЛАТЬ!!!!!)
+4.hourly_price: обернуть в Number
+5. period: обернуть в Number
+6. price: обернуть в Number
+7. promotion: {
+  created_at: "2016-10-11T07:21:53.819Z",
+  description: "Any skill test defined by the client",
+  id: 40,
+  profession_category_id: 2,
+  promotion_type: "default",
+  selected: true,
+  title: "IT & Networking",
+  updated_at: "2016-11-01T06:38:29.806Z",
+} - (переделать название с promo на promotion, передаем объект полностью!!!)
+8. skill - отсутствует. Есть skill_tags - пустой
+9. subpromo - удалить, нет такого
+10. subpromo full - удалить, нет такого

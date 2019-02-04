@@ -10,6 +10,8 @@ function getCookie(name) {
 
 function getAuth() {
   const token = getCookie('authHeaders');
+  const accessToken = JSON.parse(token);
+  localStorage.setItem('accessToken', accessToken['access-token']);
   return JSON.parse(token);
 };
 

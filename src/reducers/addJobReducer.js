@@ -6,6 +6,7 @@ const initialState = {
   categories: [],
   promotions: [],
   jobPostedSuccess: '',
+  validateAgree: false,
 };
 
 const addJobReducer = handleActions(
@@ -23,7 +24,11 @@ const addJobReducer = handleActions(
     [TYPES.POSTED_JOB_SUCCESS]: (state, action) => ({
       ...state,
       jobPostedSuccess: action.payload.meta.messages[0],
-    })
+    }),
+    [TYPES.VALIDATE_AGREE]: (state, action) => ({
+      ...state,
+      validateAgree: true,
+    }),
   },
   initialState
 );

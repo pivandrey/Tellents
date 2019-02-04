@@ -7,6 +7,7 @@ import MainContentTalents from '../containers/MainContentTalents';
 import JobBoxesHeader from './JobBoxesHeader';
 import ContentHeader from './ContentHeader';
 import AddJobModal from '../containers/AddJobModal';
+import TermsUse from '../containers/TermsUse';
 
 import './dashboardContentStyle.css';
 
@@ -41,6 +42,10 @@ class Content extends Component {
           >Start New Project</button>
           {jobModalFlag &&
           <AddJobModal />}
+          
+          {this.props.isShowTerms &&
+            <TermsUse />
+          }
         </div>
       </div>
     )
@@ -57,6 +62,7 @@ Content.propTypes = {
   clearCountPage: PropTypes.func.isRequired,
   cardsCount: PropTypes.func.isRequired,
   defineJobsOrTalents: PropTypes.func.isRequired,
+  isShowTerms: PropTypes.bool.isRequired,
 };
 
 export default Content;

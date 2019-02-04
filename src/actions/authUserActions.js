@@ -6,8 +6,11 @@ import Auth from 'j-toker';
 
 Auth.configure({
   apiUrl: 'https://floating-atoll-63112.herokuapp.com/api',
+  validateOnPageLoad: true,
+  handleTokenValidationResponse: (resp) => {
+    return resp.data;
+  },
 });
-
 
 export const register = (values) => async (dispatch, getState) => {
   try {
@@ -20,7 +23,7 @@ export const register = (values) => async (dispatch, getState) => {
       last_name: values.lastName,
     });
 
-    dispatch(getDataAboutUser(data));
+    dispatch(setDataAboutUser(data));
     history.push('/dashboard/find/job')
 
   } catch (e) {
@@ -36,7 +39,7 @@ export const loginUser = (values) => async (dispatch, getState) => {
       password: values.password,
     });
 
-    dispatch(getDataAboutUser(data));
+    dispatch(setDataAboutUser(data));
     history.push('/dashboard/find/job')
 
   } catch (e) {
@@ -45,11 +48,6 @@ export const loginUser = (values) => async (dispatch, getState) => {
   }
 };
 
-export function getDataAboutUser (values) {
-  return {
-    type: TYPES.GET_DATA_ABOUT_USER,
-    payload: values,
-  }
-};
+export const setDataAboutUser = createAction(TYPES.SET_DATA_ABOUT_USER);
 
 export const authUser = createAction(TYPES.AUTH_USER);

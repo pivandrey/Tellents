@@ -11,6 +11,7 @@ import searchReducer from './searchReducer';
 import sortReducer from './sortReducer';
 import pageReducer from './pageReducer';
 import filterTalentsReducer from './filterTalentsReducer';
+import termsReducer from './termsReducer';
 
 export const rootReducer = combineReducers ({
   authModal: authModalReducer,
@@ -25,4 +26,5 @@ export const rootReducer = combineReducers ({
   sort: sortReducer,
   page: pageReducer,
   filterTalents: filterTalentsReducer,
+  terms: termsReducer,
 });

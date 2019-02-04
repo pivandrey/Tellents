@@ -20,6 +20,16 @@ class Login extends Component {
         <p>or</p>
         <Form 
           onSubmit={this.onSubmit}
+          validate={values => {
+            const errors = {};
+            if (!values.email) {
+              errors.firstName = "Required email";
+            }
+            if (!values.password) {
+              errors.lastName = "Required password";
+            }
+            return errors;
+          }}
           render={({ handleSubmit, form, submitting, pristine, values }) => (
             <form onSubmit={handleSubmit}>
               <div>

@@ -2,8 +2,8 @@ import { handleActions } from 'redux-actions';
 import * as TYPES from '../types';
 
 const initialState = {
-  firstName: 'John',
-  lastName: 'Jackson',
+  firstName: '',
+  lastName: '',
   email: '',
   user: '',
 };
@@ -23,7 +23,7 @@ const authUserReducer = handleActions(
         email: action.payload.email,
       }
     },
-    [TYPES.GET_DATA_ABOUT_USER]: (state, action) => {
+    [TYPES.SET_DATA_ABOUT_USER]: (state, action) => {
       return {
         ...state,
         firstName: action.payload.first_name,

@@ -72,6 +72,7 @@ class Dashboard extends Component {
           clearCountPage={this.props.clearCountPage}
           cardsCount={this.countOfCards}
           defineJobsOrTalents={this.defineJobsOrTalents}
+          isShowTerms={this.props.isShowTerms}
         />
       </div>
     )
@@ -84,6 +85,7 @@ Dashboard.propTypes = {
   addJobModalFlag: PropTypes.bool.isRequired,
   jobsCount: PropTypes.number.isRequired,
   talentsCount: PropTypes.number.isRequired,
+  isShowTerms: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = store => {
@@ -93,6 +95,7 @@ const mapStateToProps = store => {
     addJobModalFlag: store.addJobModal.showModalAddJob,
     jobsCount: Number(store.jobs.countJobs),
     talentsCount: Number(store.talents.countTalents),
+    isShowTerms: store.terms.showTerms,
   };
 };
 

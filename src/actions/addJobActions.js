@@ -4,6 +4,7 @@ import { http } from '../client';
 import * as TYPES from '../types';
 
 export const closeModalAddJob = createAction(TYPES.CLOSE_MODAL_ADD_JOB);
+export const validateAgree = createAction(TYPES.VALIDATE_AGREE);
 
 export const showModalAddJob = () => async (dispatch, getState) => {
   try {
@@ -24,13 +25,10 @@ export function showModalAddJobSuccess(values) {
 
 export const postedJob = (values) => async (dispatch, getState) => {
   try {
-    const state =  getState();
-    const user = state.authUser.user;
-    const dataForRequest = {...values, user}
-    console.log(dataForRequest);
     const {data} = await http().post('/client_jobs', values);
 
     dispatch(postedJobSuccess(data));
+    dispatch(closeModalAddJob());
   } catch (e) {
     throw e
   }
