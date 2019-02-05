@@ -49,7 +49,7 @@ There are so many currents and branches, so many schools of philosophy that it i
             type="checkbox"
             name="agreeTerm"
             onClick={this.handleClickValidate}
-            checked={this.props.validate}
+            defaultChecked={this.props.validate}
           />
         I have read Terms of Use</label>
         <button type="button" className="btn-agree" onClick={this.handleClickAgree}>AGREE</button>

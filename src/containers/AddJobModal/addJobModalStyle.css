@@ -82,3 +82,15 @@
   color: red;
   font-weight: bold;
 }
+
+.form-btn-terms {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #15a4fa;
+  font-size: 14px;
+}
+
+.form-btn-terms:hover {
+  text-decoration: underline;
+}

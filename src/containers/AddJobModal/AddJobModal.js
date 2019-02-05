@@ -138,8 +138,13 @@ class AddJobModal extends Component {
                               ></span>
                             </span>
                             <label htmlFor="agree" className="checkbox-label">I agree for the{' '}
-                              <a href="#" onClick={this.showTermsModal}>terms of use</a>
+                              
                             </label>
+                            <button 
+                                className="form-btn-terms"
+                                onClick={this.showTermsModal}
+                                type="button"
+                              >terms of use</button>
                             <br/>{meta.error && meta.touched && <span className="error">{meta.error}</span>}
                           </div>
                         )}
