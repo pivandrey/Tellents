@@ -23,13 +23,28 @@ class JobBoxesHeader extends Component {
     return(
       <div className="jobBoxes">
         <div className="jobBoxes-radio">
-          <Link to='/dashboard/find/job' className="jobBoxes-header-jobs"> 
+          <Link 
+            to='/dashboard/find/job' 
+            className={this.defineJobsOrTalentsFlag() ? 
+              "jobBoxes-header-jobs jobBoxes-header-active" : "jobBoxes-header-jobs"}
+          > 
             <label>
               Jobs
                 <input type="radio" name="jobBoxesFilter" value="0" className="radio-block" />
             </label>
           </Link>
-          <Link to='/dashboard/find/talent' className="jobBoxes-header-talents">
+          <Link to={this.defineJobsOrTalentsFlag() ? '/dashboard/find/talent' : '/dashboard/find/job'}>
+            <button className="radio-switcher">
+              <div className={this.defineJobsOrTalentsFlag() ? "circul-shape" : "circul-shape-right"}>
+                <span className="icon icon-check-mark"></span>
+              </div>
+            </button>
+          </Link>
+          <Link 
+            to='/dashboard/find/talent'
+            className={!this.defineJobsOrTalentsFlag() ? 
+              "jobBoxes-header-talents jobBoxes-header-active" : "jobBoxes-header-talents"}
+          > 
             <label>
               Talents
               <input type="radio" name="jobBoxesFilter" value="0" className="radio-block" />

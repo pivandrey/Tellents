@@ -332,9 +332,14 @@
   display: none;
 }
 
-.icon-check-mark {
+.checkbox-element > .checkbox-circle > .icon-check-mark {
   position: absolute;
-  top: 1px;
+  top: 2px;
   left: 1px;
   font-size: 10px;
+}
+
+.payment-hourly-input {
+  display: flex;
+  align-items: center;
 }

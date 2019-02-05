@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Auth from "j-toker";
 
 import DashboardHeader from '../components/DashboardHeader'
 import Content from '../components/Content'
@@ -15,6 +16,7 @@ import { fetchJobs } from '../actions/jobsCardsActions'
 import { fetchTalents } from '../actions/talentsCardsActions'
 import { sort } from '../actions/sortActions'
 import { clearCountPage } from '../actions/pageActions'
+import { setDataAboutUser } from "../actions/authUserActions";
 
 import '../components/dashboardStyle.css'
 
@@ -26,7 +28,9 @@ class Dashboard extends Component {
     return fullName;
   };
 
-  componentDidMount() {
+  async componentDidMount() {
+    const user = await Auth.validateToken();
+    this.props.setDataAboutUser(user);
     this.props.fetchCountries();
     this.props.fetchLanguages();
   };
@@ -109,6 +113,7 @@ const mapDispatchToProps = dispatch => bindActionCreators(
     fetchTalents,
     sort,
     clearCountPage,
+    setDataAboutUser,
   },
   dispatch
 );

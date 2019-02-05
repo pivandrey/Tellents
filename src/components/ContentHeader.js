@@ -15,6 +15,7 @@ class ContentHeader extends Component {
 
   render() {
     const fullName = this.props.fullName;
+    const defineJobsOrTalents = this.props.defineJobsOrTalents;
     return(
       <div className="content-header-flex">
         <p className="content-header-text"><span>Hi {fullName()},</span><br />What are you looking for today?</p>
@@ -40,8 +41,16 @@ class ContentHeader extends Component {
             )}
           />
           <div>
-            <Link to='/dashboard/find/job'><label className="radio-block1"> Jobs</label></Link>
-            <Link to='/dashboard/find/talent'><label className="radio-block2">Talents</label></Link>
+            <Link to='/dashboard/find/job'>
+              <label className={defineJobsOrTalents() ? "radio-block1 active-block" : "radio-block1"}> 
+                Jobs
+              </label>
+            </Link>
+            <Link to='/dashboard/find/talent'>
+              <label className={!defineJobsOrTalents() ? "radio-block2 active-block" : "radio-block2"}>
+                Talents
+              </label>
+            </Link>
           </div>
         </div>
       </div>

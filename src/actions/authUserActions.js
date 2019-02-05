@@ -40,7 +40,7 @@ export const loginUser = (values) => async (dispatch, getState) => {
     });
 
     dispatch(setDataAboutUser(data));
-    history.push('/dashboard/find/job')
+    history.push('/dashboard/find/job');
 
   } catch (e) {
     alert('Invalid credentials.')

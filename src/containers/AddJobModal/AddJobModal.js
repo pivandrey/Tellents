@@ -50,6 +50,7 @@ class AddJobModal extends Component {
 
   showTermsModal = () => {
     this.props.showTerms();
+    this.props.closeModalAddJob();
   }
 
   handleValidateTerm = () => {
@@ -58,6 +59,14 @@ class AddJobModal extends Component {
       return 'true'
     } else {
       return ''
+    }
+  }
+
+  handleCLickValidateAgree = () => {
+    if (this.props.validate) {
+      this.props.validateAgree(false)
+    } else {
+      this.props.validateAgree(true)
     }
   }
 
@@ -114,15 +123,21 @@ class AddJobModal extends Component {
                       }
                       <Field name="agree" type="radio" >
                         {({ input, meta }) => (
-                          <div>
+                          <div className="checkbox-element">
                             <input {...input} 
                               id="agree" 
                               type="radio" 
                               value="true" 
-                              onClick={this.props.validateAgree}
+                              onClick={this.handleCLickValidateAgree}
                               checked={this.props.validate}
+                              className="checkbox-input"
                             />
-                            <label htmlFor="agree">I agree for the{' '}
+                            <span className="checkbox-circle">
+                              <span
+                                className={this.props.validate ? "icon-check-mark" : "non-check"}
+                              ></span>
+                            </span>
+                            <label htmlFor="agree" className="checkbox-label">I agree for the{' '}
                               <a href="#" onClick={this.showTermsModal}>terms of use</a>
                             </label>
                             <br/>{meta.error && meta.touched && <span className="error">{meta.error}</span>}

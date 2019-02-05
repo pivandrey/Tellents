@@ -27,7 +27,11 @@ const addJobReducer = handleActions(
     }),
     [TYPES.VALIDATE_AGREE]: (state, action) => ({
       ...state,
-      validateAgree: true,
+      validateAgree: action.payload,
+    }),
+    [TYPES.SHOW_MODAL_ADD_JOB_WITHOUT_DATA]: (state, action) => ({
+      ...state,
+      showModalAddJob: true,
     }),
   },
   initialState

@@ -5,6 +5,7 @@ import * as TYPES from '../types';
 
 export const closeModalAddJob = createAction(TYPES.CLOSE_MODAL_ADD_JOB);
 export const validateAgree = createAction(TYPES.VALIDATE_AGREE);
+export const showModalAddJobWithoutData = createAction(TYPES.SHOW_MODAL_ADD_JOB_WITHOUT_DATA);
 
 export const showModalAddJob = () => async (dispatch, getState) => {
   try {

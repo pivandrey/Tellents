@@ -5,12 +5,14 @@ class FormPaymentFields extends Component {
   
   state = {
     fixedPayment: false,
+    clickFlag: false,
   }
 
   fixedPayment = (e) => {
     if (e.currentTarget.checked) {
       this.setState ({
         fixedPayment: true,
+        clickFlag: true,
       })
     }; 
   };
@@ -19,6 +21,7 @@ class FormPaymentFields extends Component {
     if (e.currentTarget.checked) {
       this.setState ({
         fixedPayment: false,
+        clickFlag: true,
       })
     };
   };
@@ -29,28 +32,43 @@ class FormPaymentFields extends Component {
         <div className="form-block-payment">
           <h2>Job Payment</h2>
           <div className="form-payment">
-            <label>
-              <Field 
-                component="input"
-                type="radio" 
-                name="payment" 
-                value="fixed" 
-                onClick={this.fixedPayment}
-              />
-              Fixed price
-            </label>
-            <div>
-              <label>
+            <div className="checkbox-element">
+              <span className="checkbox-circle">
+                <span
+                  className={this.state.fixedPayment ? "icon-check-mark" : "non-check"}
+                ></span>
+              </span>
+              <label className="checkbox-label">
                 <Field 
                   component="input"
                   type="radio" 
                   name="payment" 
-                  value="hourly" 
-                  onClick={this.hourlyPayment}
+                  value="fixed" 
+                  onClick={this.fixedPayment}
+                  className="checkbox-input"
                 />
-                Hourly
+                Fixed price
               </label>
-            
+            </div>
+            <div className="payment-hourly-input">
+              <div className="checkbox-element">
+                <span className="checkbox-circle">
+                  <span
+                    className={(!this.state.fixedPayment && this.state.clickFlag) ? "icon-check-mark" : "non-check"}
+                  ></span>
+                </span>
+                <label className="checkbox-label">
+                  <Field 
+                    component="input"
+                    type="radio" 
+                    name="payment" 
+                    value="hourly" 
+                    onClick={this.hourlyPayment}
+                    className="checkbox-input"
+                  />
+                  Hourly
+                </label>
+              </div>
               <label>
                 <Field
                   name="hourly_price"

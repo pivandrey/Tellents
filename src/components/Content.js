@@ -23,6 +23,7 @@ class Content extends Component {
           setSearchRequest={this.props.setSearchRequest}
           fetchCards={this.props.fetchCards}
           clearCountPage={this.props.clearCountPage}
+          defineJobsOrTalents={this.props.defineJobsOrTalents}
         />
         <JobBoxesHeader 
           sort={this.props.sort} 

@@ -3,19 +3,39 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { closeTerms } from '../actions/termsActions'
-import { validateAgree } from '../actions/addJobActions'
+import { validateAgree, showModalAddJobWithoutData } from '../actions/addJobActions'
 
 import './termsStyle.css'
 
 class TermsUse extends Component {
 
   handleClickAgree = () => {
-    this.props.closeTerms()
-  }
+    this.props.closeTerms();
+    this.props.showModalAddJobWithoutData();
+  };
 
   handleClickValidate = () => {
-    this.props.validateAgree();
-  }
+    if (this.props.validate) {
+      this.props.validateAgree(false);
+    } else {
+      this.props.validateAgree(true);
+    }
+  };
+
+  componentDidMount() {
+    this.initializeEscClosing();
+  };
+
+  initializeEscClosing = () => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('keydown', (e) => {
+        if (e.which === 27) {
+          this.props.closeTerms();
+          this.props.showModalAddJobWithoutData();
+        }
+      });
+    };
+  };
 
   render() {
     return (
@@ -29,6 +49,7 @@ There are so many currents and branches, so many schools of philosophy that it i
             type="checkbox"
             name="agreeTerm"
             onClick={this.handleClickValidate}
+            checked={this.props.validate}
           />
         I have read Terms of Use</label>
         <button type="button" className="btn-agree" onClick={this.handleClickAgree}>AGREE</button>
@@ -37,15 +58,22 @@ There are so many currents and branches, so many schools of philosophy that it i
   }
 }
 
+const mapStateToProps = store => {
+  return {
+    validate: store.addJobModal.validateAgree,
+  }
+};
+
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
     closeTerms,
     validateAgree,
+    showModalAddJobWithoutData,
   },
   dispatch
 );
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(TermsUse);

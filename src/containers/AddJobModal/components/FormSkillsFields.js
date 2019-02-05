@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Field } from 'react-final-form';
 
 import './formsStyle.css'
-import { fbind } from 'q';
 
 class FormSkillsFields extends Component {
 
@@ -40,7 +39,7 @@ class FormSkillsFields extends Component {
 
   find = (array, value) => {
     for (var i = 0; i < array.length; i++) {
-      if (array[i] == value) return i;
+      if (Number(array[i]) === Number(value)) return i;
     }
   
     return -1;
