@@ -34,6 +34,7 @@ class MainContentJobs extends Component {
             data={jobs} 
             setPage={this.props.setPage} 
             fetchJobs={this.props.fetchJobs} 
+            isFetching={this.props.isFetching}
           />
         </div>
       </div>
@@ -52,6 +53,7 @@ const mapStateToProps = store => {
     jobs: store.jobs.jobs,
     filter: store.filterJob,
     jobPostedSuccess: store.addJobModal.jobPostedSuccess,
+    isFetching: store.jobs.isFetching,
   }
 };
 

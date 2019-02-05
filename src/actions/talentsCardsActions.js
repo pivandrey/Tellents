@@ -1,3 +1,4 @@
+import { createAction } from 'redux-actions';
 import * as TYPES from '../types';
 import { http } from '../client';
 import history from '../history';
@@ -6,6 +7,7 @@ const queryString = require('query-string');
 
 export const fetchTalents = () => async (dispatch, getState) => {
   try {
+    dispatch(fetchTalentsRequest());
     const state =  getState();
     const filterState = state.filterTalents;
     const searchRequest = state.search.search;
@@ -57,16 +59,6 @@ export const fetchTalents = () => async (dispatch, getState) => {
   }
 };
 
-export function fetchTalentsSuccess (values) {
-  return {
-    type: TYPES.GET_TALENTS,
-    payload: values,
-  }
-};
-
-export function fetchTalentsMoreSuccess (values) {
-  return {
-    type: TYPES.GET_MORE_TALENTS,
-    payload: values,
-  }
-};
+export const fetchTalentsRequest = createAction(TYPES.FETCH_TALENTS_REQUEST);
+export const fetchTalentsSuccess = createAction(TYPES.GET_TALENTS);
+export const fetchTalentsMoreSuccess = createAction(TYPES.GET_MORE_TALENTS);
